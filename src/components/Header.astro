@@ -13,7 +13,9 @@ const { titles } = Astro.props;
       {
         titles.map((title) => (
           <li>
-            <a href={"/"+title.toLocaleLowerCase().replace(/\s/g, "-")}>{title}</a>
+            <a href={"/" + title.toLocaleLowerCase().replace(/\s/g, "-")}>
+              {title}
+            </a>
           </li>
         ))
       }
@@ -35,19 +37,19 @@ const { titles } = Astro.props;
   }
 
   if (!isDarkModeOnLocalStorage || !isDarkModePreferred) {
-    document!.querySelector("html")!.setAttribute("data-light-mode", "");
-    document!.querySelector("#dark-mode-toggle")!.removeAttribute("checked");
+    document.querySelector("html")?.setAttribute("data-light-mode", "");
+    document.querySelector("#dark-mode-toggle")?.removeAttribute("checked");
     localStorage.setItem("dark-mode", "false");
   }
 
-  document!
-    .querySelector("#dark-mode-toggle")!
-    .addEventListener("change", function (event) {
-      document!.querySelector("html")!.toggleAttribute("data-light-mode");
+  document
+    .querySelector("#dark-mode-toggle")
+    ?.addEventListener("change", function (event) {
+      document.querySelector("html")?.toggleAttribute("data-light-mode");
       localStorage.setItem(
         "dark-mode",
         // @ts-ignore
-        event.target!.checked ? "true" : "false"
+        event.target?.checked ? "true" : "false"
       );
     });
 </script>

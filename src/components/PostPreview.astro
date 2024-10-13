@@ -19,6 +19,8 @@ interface Props {
 
 const { title, slug, pubDate, description, tags, readingTime, snippet } =
   Astro.props;
+
+const date = new Date(pubDate).toDateString();
 ---
 
 <div class="preview-container">
@@ -30,7 +32,10 @@ const { title, slug, pubDate, description, tags, readingTime, snippet } =
             {title}
           </a>
         </h2>
-        {readingTime} - {pubDate}
+        {readingTime}
+        <time datetime={pubDate}>
+          {date}
+        </time>
       </div>
       <p>{description}</p>
     </div>

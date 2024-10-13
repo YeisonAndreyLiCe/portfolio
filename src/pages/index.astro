@@ -1,34 +1,34 @@
 ---
-import Base from '../layouts/Base.astro';
-import PostPreview from 'components/PostPreview.astro';
-import MyHero from 'components/MyHero.astro';
+import Base from "../layouts/Base.astro";
+import PostPreview from "components/PostPreview.astro";
+import MyHero from "components/MyHero.astro";
 
-const allPosts = await Astro.glob('../content/posts/*.md');
+const allPosts = await Astro.glob("../content/posts/*.md");
 ---
 
-<Base title="Yeison Liscano">
-	<MyHero />
-	<section class="posts-preview">
-		{
-			allPosts.map((post) => (
-					<PostPreview
-						title={post?.frontmatter?.title}
-						pubDate={post?.frontmatter?.pubDate.split('T')[0]}
-						description={post?.frontmatter?.description}
-						tags={post?.frontmatter?.tags}
-						slug={post?.frontmatter.title.toLowerCase().replace(/\s/g, '-')}
-						readingTime={post?.frontmatter?.readingTime},
-						snippet={post?.frontmatter?.snippet}
-					/>
-			))
-		}
-	</section>
+<Base title="Yeison Liscano" description="Blog posts about web development">
+  <MyHero />
+  <section class="posts-preview">
+    {
+      allPosts.map((post) => (
+        <PostPreview
+          title={post?.frontmatter?.title}
+          pubDate={post?.frontmatter?.pubDate.split("T")[0]}
+          description={post?.frontmatter?.description}
+          tags={post?.frontmatter?.tags}
+          slug={post?.frontmatter.title.toLowerCase().replace(/\s/g, "-")}
+          readingTime={post?.frontmatter?.readingTime}
+          snippet={post?.frontmatter?.snippet}
+        />
+      ))
+    }
+  </section>
 </Base>
 
 <style>
-	.posts-preview {
-		display: flex;
-		flex-direction: column;
-		gap: 20px;
-	}
+  .posts-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 </style>
