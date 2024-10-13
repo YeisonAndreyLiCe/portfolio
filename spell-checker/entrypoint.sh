@@ -9,7 +9,7 @@ function check {
       cspell "**" "--config" "${config_file}"
       ;;
     "only-changed-files")
-      git diff-tree --no-commit-id --name-only -r HEAD | cspell --file-list stdin
+      git diff-tree --no-commit-id --name-only --diff-filter=d -r HEAD | cspell --file-list stdin
       ;;
     *)
       cspell "${files}" "--config" "${config_file}"

@@ -1,15 +1,32 @@
 :root {
-  --primary: #1d2d50;
-  --secondary: #133b5c;
-  --neutral: #1e5f74;
-  --contrast: #fcdab7;
-  --text-color: #eef7ff;
+  --primary: #121210;
+  --secondary: #202125;
+  --alternative: #33807e;
+  --neutral: #0a4f60;
+  --contrast: #ffffff;
+  --text-color: #f0f0f0;
+  --text-color-low-contrast: #a5d5df;
   --code-background: #282c34;
 
-  background-image: linear-gradient(135deg, var(--primary), var(--secondary));
+  background-image: linear-gradient(
+    45deg,
+    var(--primary),
+    var(--secondary),
+    var(--neutral)
+  );
+  background-size: 300% 300%;
   color: var(--text-color);
-	font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    SF Mono,
+    Menlo,
+    Consolas,
+    Liberation Mono,
+    monospace;
   height: 100%;
+
+  line-height: 1.5;
 }
 
 [data-theme="light"] {
