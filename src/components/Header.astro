@@ -1,4 +1,6 @@
 ---
+import ThemeToggle from "components/ThemeToggle.astro";
+
 interface Props {
   titles: string[];
 }
@@ -20,38 +22,21 @@ const { titles } = Astro.props;
         ))
       }
     </ul>
-    <label class="switch">
-      <input type="checkbox" id="dark-mode-toggle" checked="true" />
-      <span class="slider round"></span>
-    </label>
+    <ThemeToggle />
   </nav>
 </header>
-<script>
-  const isDarkModeOnLocalStorage = localStorage.getItem("dark-mode") === "true";
-  const isDarkModePreferred = window.matchMedia(
-    "(prefers-color-scheme: dark)"
-  ).matches;
+<script is:inline>
+  const getThemePreference = () => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  };
 
-  if (isDarkModePreferred && !isDarkModeOnLocalStorage) {
-    localStorage.setItem("dark-mode", "true");
-  }
-
-  if (!isDarkModeOnLocalStorage || !isDarkModePreferred) {
-    document.querySelector("html")?.setAttribute("data-light-mode", "");
-    document.querySelector("#dark-mode-toggle")?.removeAttribute("checked");
-    localStorage.setItem("dark-mode", "false");
-  }
-
-  document
-    .querySelector("#dark-mode-toggle")
-    ?.addEventListener("change", function (event) {
-      document.querySelector("html")?.toggleAttribute("data-light-mode");
-      localStorage.setItem(
-        "dark-mode",
-        // @ts-ignore
-        event.target?.checked ? "true" : "false"
-      );
-    });
+  const theme = getThemePreference();
+  document.querySelector("html").setAttribute("data-theme", theme);
 </script>
 
 <style>
@@ -90,65 +75,6 @@ const { titles } = Astro.props;
 
   nav ul li a:hover {
     text-decoration: underline;
-  }
-
-  .switch {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 28px;
-  }
-
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-  }
-
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 20px;
-    width: 20px;
-    left: 4px;
-    bottom: 4px;
-    background-color: var(--text-color);
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-  }
-
-  input:checked + .slider {
-    background-color: var(--primary);
-  }
-
-  input:focus + .slider {
-    box-shadow: 0 0 1px var(--contrast);
-  }
-
-  input:checked + .slider:before {
-    -webkit-transform: translateX(22px);
-    -ms-transform: translateX(22px);
-    transform: translateX(22px);
-  }
-
-  .slider.round {
-    border-radius: 28px;
-  }
-
-  .slider.round:before {
-    border-radius: 50%;
   }
 
   @media (max-width: 600px) {

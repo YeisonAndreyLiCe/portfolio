@@ -8,12 +8,14 @@ blockquote
 builtins
 clearfix
 Consolas
+currentcolor
 datetime
 fastcgi
 fieldset
 figcaption
 focusring
 frontmatter
+keyof
 Liscano
 Menlo
 msapplication
@@ -33,5 +35,7 @@ Segoe
 shiki
 stylesheet
 tsconfigs
+typeof
 uwsgi
+YALC
 Yeison
