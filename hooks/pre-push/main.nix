@@ -2,8 +2,5 @@
 makeScript {
   entrypoint = ./entrypoint.sh;
   name = "hooks-pre-push";
-  searchPaths.bin = [
-    outputs."/spell-checker"
-    outputs."/lintGitCommitMsg"
-  ];
+  searchPaths.bin = [ outputs."/spell-checker" outputs."/lintGitCommitMsg" ];
 }

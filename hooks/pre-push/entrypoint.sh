@@ -2,7 +2,8 @@
 
 function main {
   : && lint-git-commit-msg-for-lint-git-commit-msg \
-    && spell-checker
+    && info "Testing spelling" \
+    && spell-checker "only-changed-files" || return 1
 }
 
 main "${@}"
