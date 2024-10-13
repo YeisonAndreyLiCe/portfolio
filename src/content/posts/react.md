@@ -21,5 +21,5 @@ snippet:
 "
 ---
 
-# Python3
-Lorem ipsum dolor sit amet, consectetur adipiscing elit
+# React
+React is a JavaScript library/framework for building user interfaces.

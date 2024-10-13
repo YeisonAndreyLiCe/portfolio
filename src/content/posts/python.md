@@ -8,8 +8,8 @@ readingTime: "1 min read"
 layout: "../../layouts/Base.astro"
 snippet:
   language: "python"
-  code: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+  code: "import pandas as pd"
 ---
 
 # Python
-Lorem ipsum dolor sit amet, consectetur adipiscing elit
+Python is a programming language that lets you work quickly

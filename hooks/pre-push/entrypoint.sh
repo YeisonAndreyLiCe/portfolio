@@ -2,7 +2,7 @@
 
 function main {
 
-  common-test-spelling
+  spell-checker
 }
 
 main "${@}"
