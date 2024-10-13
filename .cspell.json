@@ -1,0 +1,17 @@
+{
+  "dictionaries": [
+    "project-words"
+  ],
+  "dictionaryDefinitions": [
+    {
+      "addWords": true,
+      "name": "project-words",
+      "path": "./project-words.txt"
+    }
+  ],
+  "ignorePaths": [
+    "node_modules"
+  ],
+  "language": "en",
+  "version": "0.2"
+}
