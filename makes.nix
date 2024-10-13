@@ -42,7 +42,7 @@ in {
     targets = [ "/" ];
   };
   lintGitCommitMsg = {
-    branch = "trunk";
+    branch = "main";
     enable = true;
     config = "/.lint-git-commit-msg/config.js";
     parser = "/.lint-git-commit-msg/parser.js";

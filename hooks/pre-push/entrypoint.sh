@@ -1,8 +1,8 @@
 # shellcheck shell=bash
 
 function main {
-
-  spell-checker
+  : && lint-git-commit-msg-for-lint-git-commit-msg \
+    && spell-checker
 }
 
 main "${@}"

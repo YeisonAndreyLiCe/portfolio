@@ -1,1 +1,1 @@
-m . /hooks/pre-push
+: && m . /hooks/pre-push

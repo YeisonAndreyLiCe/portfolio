@@ -4,5 +4,6 @@ makeScript {
   name = "hooks-pre-push";
   searchPaths.bin = [
     outputs."/spell-checker"
+    outputs."/lintGitCommitMsg"
   ];
 }
