@@ -1,0 +1,193 @@
+---
+import { Code } from 'astro:components';
+import type {
+	BuiltinLanguage,
+} from 'shiki';
+
+interface Props {
+  title: string;
+  description: string;
+  tags: string[];
+  slug: string;
+  readingTime: string;
+  pubDate: string;
+  snippet: {
+    language: BuiltinLanguage;
+    code: string;
+  };
+}
+
+const { title, slug, pubDate, description, tags, readingTime, snippet } =
+  Astro.props;
+---
+
+<div class="preview-container">
+  <div class="description-container">
+    <div>
+      <div>
+        <h2>
+          <a href={`/posts/${slug}`}>
+            {title}
+          </a>
+        </h2>
+        {readingTime} - {pubDate}
+      </div>
+      <p>{description}</p>
+    </div>
+    <div class="tags-container">
+      {
+        tags.map((tag) => (
+          <button class="tag">
+            <a href={`/tags/${tag.toLocaleLowerCase().replace(/\s/g, "-")}`}>
+              {tag[0].toUpperCase() + tag.slice(1)}
+            </a>
+          </button>
+        ))
+      }
+      <button class="tag">
+        <a href={`/posts/${slug}`}>Read Post</a>
+      </button>
+    </div>
+  </div>
+  <div class="container-like-image">
+    <button class="code-tag">
+      <a
+        href={`/posts/${snippet.language.toLocaleLowerCase().replace(/\s/g, "-")}`}
+      >
+        {snippet.language[0].toUpperCase() + snippet.language.slice(1)}
+      </a>
+    </button>
+    <Code code={snippet.code} lang={snippet.language} theme="tokyo-night"/>
+  </div>
+</div>
+
+<style>
+  .description-container {
+    background-color: var(--secondary);
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 150px;
+  }
+
+  .description-container > div > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  a {
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    color: var(--contrast);
+    transition: color 0.3s;
+  }
+
+  pre {
+    padding: 8px;
+    color: var(--text-color);
+  }
+
+  .code-tag {
+    background-color: var(--code-background);
+    padding: 8px;
+    border: none;
+  }
+
+  .tags-container {
+    display: flex;
+    gap: 8px;
+  }
+
+  .tag {
+    background-color: var(--text-color);
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+  }
+
+  .tag a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+
+  .tag:hover {
+    background-color: var(--contrast);
+  }
+
+  .container-like-image {
+    box-shadow: 0 0 10px var(--neutral);
+  }
+
+  .description-container:hover {
+    box-shadow: 0 0 10px var(--contrast);
+  }
+
+  .container-like-image {
+    display: flex-inline;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 8px;
+    background-color: var(--neutral);
+
+    a {
+      color: var(--text-color);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: var(--contrast);
+      transition: color 0.3s;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .container-like-image,
+    .description-container {
+      padding: 16px;
+      border-radius: 8px;
+    }
+
+    .preview-container {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      margin-top: 24px;
+      margin-bottom: 24px;
+      align-content: center;
+    }
+
+    .preview-container:nth-child(even) .description-container {
+      grid-column: 2 / 7;
+      z-index: 2;
+      margin-right: -100px;
+      opacity: 0.9;
+      grid-row: 1 / 4;
+    }
+    .preview-container:nth-child(even) .container-like-image {
+      align-items: start;
+      grid-column: 7 / 12;
+      z-index: 1;
+      grid-row: 2;
+    }
+
+    .preview-container:nth-child(odd) .container-like-image {
+      grid-column: 2 / 7;
+      z-index: 1;
+      grid-row: 2;
+    }
+    .preview-container:nth-child(odd) .description-container {
+      grid-column: 7 / 12;
+      z-index: 2;
+      opacity: 0.9;
+      margin-left: -100px;
+      opacity: 0.9;
+      grid-row: 1 / 4;
+    }
+  }
+</style>

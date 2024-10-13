@@ -1,0 +1,61 @@
+<section>
+  <span> Hi, my name is </span>
+  <h2><a href="/about">Yeison Liscano</a></h2>
+  <p>
+    Passionate about web development, I expertice as a fullstack developer. I
+    have worked with technologies like React, Node.js, Python, AWS and Graphql.
+    I'm a software engineer and I love to write about web development,
+    programming, datascience, and technology. Take a read at my latest posts.
+  </p>
+  <button>
+    <a href="/posts">Read Last Post</a>
+  </button>
+</section>
+
+<style>
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 20px;
+    max-width: 1000px;
+    gap: 10px;
+  }
+
+  h2 a {
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
+  h2 a:hover {
+    text-decoration: underline;
+  }
+
+  span {
+    font-size: 1.5rem;
+    color: var(--contrast);
+  }
+
+  p {
+    color: var(--text-color);
+    margin: 8px 0;
+  }
+
+  button {
+    padding: 10px;
+    background-color: var(--text-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: var(--contrast);
+    transition: background-color 0.3s;
+  }
+
+  button a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+</style>

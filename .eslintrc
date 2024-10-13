@@ -1,0 +1,24 @@
+{
+  "extends": [
+    "plugin:mdx/recommended",
+    "plugin:astro/recommended"
+  ],
+  "overrides": [
+    {
+      "files": ["*.astro"],
+      "parser": "astro-eslint-parser",
+      "parserOptions": {
+        "parser": "@typescript-eslint/parser",
+        "extraFileExtensions": [".astro"]
+      }
+    },
+    {
+      "files": ["*.ts"],
+      "parser": "@typescript-eslint/parser"
+    }
+  ],
+  "settings": {
+    "mdx/code-blocks": false,
+    "mdx/language-mapper": {}
+  }
+}

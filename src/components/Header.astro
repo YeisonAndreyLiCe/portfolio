@@ -1,0 +1,157 @@
+---
+interface Props {
+  titles: string[];
+}
+
+const { titles } = Astro.props;
+---
+
+<header>
+  <nav>
+    <a href="/">|YALC|</a>
+    <ul>
+      {
+        titles.map((title) => (
+          <li>
+            <a href={"/"+title.toLocaleLowerCase().replace(/\s/g, "-")}>{title}</a>
+          </li>
+        ))
+      }
+    </ul>
+    <label class="switch">
+      <input type="checkbox" id="dark-mode-toggle" checked="true" />
+      <span class="slider round"></span>
+    </label>
+  </nav>
+</header>
+<script>
+  const isDarkModeOnLocalStorage = localStorage.getItem("dark-mode") === "true";
+  const isDarkModePreferred = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
+
+  if (isDarkModePreferred && !isDarkModeOnLocalStorage) {
+    localStorage.setItem("dark-mode", "true");
+  }
+
+  if (!isDarkModeOnLocalStorage || !isDarkModePreferred) {
+    document!.querySelector("html")!.setAttribute("data-light-mode", "");
+    document!.querySelector("#dark-mode-toggle")!.removeAttribute("checked");
+    localStorage.setItem("dark-mode", "false");
+  }
+
+  document!
+    .querySelector("#dark-mode-toggle")!
+    .addEventListener("change", function (event) {
+      document!.querySelector("html")!.toggleAttribute("data-light-mode");
+      localStorage.setItem(
+        "dark-mode",
+        // @ts-ignore
+        event.target!.checked ? "true" : "false"
+      );
+    });
+</script>
+
+<style>
+  header {
+    background-color: var(--secondary);
+    color: var(--contrast);
+    padding: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+  }
+
+  a {
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav ul {
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    list-style-type: none;
+  }
+
+  nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--text-color);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+
+  input:checked + .slider {
+    background-color: var(--primary);
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px var(--contrast);
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(22px);
+    -ms-transform: translateX(22px);
+    transform: translateX(22px);
+  }
+
+  .slider.round {
+    border-radius: 28px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  @media (max-width: 600px) {
+    nav ul {
+      flex-direction: column;
+    }
+  }
+</style>
