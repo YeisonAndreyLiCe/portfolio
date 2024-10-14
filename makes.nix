@@ -55,6 +55,12 @@ in {
     enable = true;
     targets = [ "/" ];
   };
+  lintMarkdown = {
+    all = {
+      config = "/test/lint-markdown/config.rb";
+      targets = [ "/" ];
+    };
+  };
   inputs = { inherit nixpkgs; };
 
 }
