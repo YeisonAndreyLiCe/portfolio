@@ -1,24 +1,16 @@
 {
-  "extends": [
-    "plugin:mdx/recommended",
-    "plugin:astro/recommended"
-  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "extraFileExtensions": [".astro"]
+  },
   "overrides": [
     {
       "files": ["*.astro"],
       "parser": "astro-eslint-parser",
       "parserOptions": {
-        "parser": "@typescript-eslint/parser",
-        "extraFileExtensions": [".astro"]
+        "parser": "@typescript-eslint/parser"
       }
-    },
-    {
-      "files": ["*.ts"],
-      "parser": "@typescript-eslint/parser"
     }
-  ],
-  "settings": {
-    "mdx/code-blocks": false,
-    "mdx/language-mapper": {}
-  }
+  ]
 }

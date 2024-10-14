@@ -22,4 +22,5 @@ snippet:
 ---
 
 # React
+
 React is a JavaScript library/framework for building user interfaces.

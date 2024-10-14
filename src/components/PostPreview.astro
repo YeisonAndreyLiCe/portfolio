@@ -1,8 +1,6 @@
 ---
-import { Code } from 'astro:components';
-import type {
-	BuiltinLanguage,
-} from 'shiki';
+import { Code } from "astro:components";
+import type { BuiltinLanguage } from "shiki";
 
 interface Props {
   title: string;
@@ -62,7 +60,7 @@ const date = new Date(pubDate).toDateString();
         {snippet.language[0].toUpperCase() + snippet.language.slice(1)}
       </a>
     </button>
-    <Code code={snippet.code} lang={snippet.language} theme="tokyo-night"/>
+    <Code code={snippet.code} lang={snippet.language} theme="tokyo-night" />
   </div>
 </div>
 
