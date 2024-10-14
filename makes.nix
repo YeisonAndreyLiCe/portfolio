@@ -57,7 +57,7 @@ in {
   };
   lintMarkdown = {
     all = {
-      config = "/test/lint-markdown/config.rb";
+      config = "/checkers/lint-markdown/config.rb";
       targets = [ "/" ];
     };
   };
