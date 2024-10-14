@@ -7,20 +7,14 @@ import Icon from "./Icon.astro";
   <span class="icon" id="icon-dark"><Icon icon="moon" /></span>
 </button>
 <script>
-  const setTheme = () => {
-    const html = document.querySelector("html");
-    if (!html) return;
-
-    const theme = html.attributes.getNamedItem("data-theme")?.value ?? "dark";
-    const newTheme = theme === "dark" ? "light" : "dark";
-
-    html.setAttribute("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
-  };
-
   const themeToggle = document.getElementById("theme-toggle");
   if (themeToggle) {
-    themeToggle.addEventListener("click", setTheme);
+    themeToggle.addEventListener("click", window.theme.toggle);
+  }
+  const _html = document.querySelector("html");
+  if (_html !== null) {
+    const theme = window.theme.getPreference();
+    _html.setAttribute("data-theme", theme);
   }
 </script>
 

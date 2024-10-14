@@ -29,53 +29,34 @@ const { titles } = Astro.props;
     <Icon icon="list" size="35px" color="red" />
   </button>
 </header>
-<script is:inline>
-  const getThemePreference = () => {
-    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-      return localStorage.getItem("theme");
-    }
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-  };
-
-  const theme = getThemePreference();
-  document.querySelector("html").setAttribute("data-theme", theme);
-
+<script>
   // collapse and expand the menu on mobile
-  const toggleShowMenu = document.getElementById("toggle-show-menu");
-  const nav = document.querySelector("nav");
-  const items = nav.innerHTML;
+  const _navbar = document.getElementById("navbar");
+  if (_navbar !== null) {
+    const observer = new MutationObserver(() => {
+      const _themeToggle = document.getElementById("theme-toggle");
+      if (_themeToggle) {
+        _themeToggle.addEventListener("click", window.theme.toggle);
+      }
+    });
+    observer.observe(_navbar, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
 
-  toggleShowMenu.addEventListener("click", () => {
-    nav.innerHTML = "";
-    nav.classList.toggle("menu-hidden");
-    if (!nav.classList.contains("menu-hidden")) {
-      nav.innerHTML = items;
-    }
-  });
+    const toggleShowMenu = document.getElementById("toggle-show-menu");
+    const items = _navbar.innerHTML;
 
-  const observer = new MutationObserver(() => {
-    const themeToggle = document.getElementById("theme-toggle");
-    if (themeToggle) {
-      const setTheme = () => {
-        const html = document.querySelector("html");
-        if (!html) return;
-
-        const theme =
-          html.attributes.getNamedItem("data-theme")?.value ?? "dark";
-        const newTheme = theme === "dark" ? "light" : "dark";
-
-        html.setAttribute("data-theme", newTheme);
-        localStorage.setItem("theme", newTheme);
-      };
-      themeToggle.addEventListener("click", setTheme);
-    }
-  });
-  observer.observe(document.getElementById("navbar"), {
-    attributes: true,
-    attributeFilter: ["class"],
-  });
+    toggleShowMenu?.addEventListener("click", () => {
+      _navbar.innerHTML = "";
+      _navbar.classList.toggle("menu-hidden");
+      if (_navbar.classList.contains("menu-hidden")) {
+        _navbar.innerHTML = "";
+      } else {
+        _navbar.innerHTML = items;
+      }
+    });
+  }
 </script>
 
 <style>

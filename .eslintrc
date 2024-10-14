@@ -1,15 +1,25 @@
 {
   "parser": "@typescript-eslint/parser",
+  "globals": {
+    "theme": "readonly"
+  },
   "parserOptions": {
     "project": "./tsconfig.json",
     "extraFileExtensions": [".astro"]
   },
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:astro/recommended",
+    "prettier"
+  ],
   "overrides": [
     {
       "files": ["*.astro"],
       "parser": "astro-eslint-parser",
       "parserOptions": {
-        "parser": "@typescript-eslint/parser"
+        "parser": "@typescript-eslint/parser",
+        "extraFileExtensions": [".astro"]
       }
     }
   ]

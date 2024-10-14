@@ -73,4 +73,42 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <meta name="twitter:image:alt" content={title} />
   <meta name="twitter:site" content="@YeisonAndreyLC" />
   <meta name="twitter:creator" content="@YeisonAndreyLC" />
+
+  <script is:inline>
+    const getPreference = () => {
+      if (
+        typeof localStorage !== "undefined" &&
+        localStorage.getItem("theme")
+      ) {
+        return localStorage.getItem("theme");
+      }
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    };
+
+    const toggle = () => {
+      const _html = document.querySelector("html");
+      if (!_html) return;
+
+      const _theme =
+        _html.attributes.getNamedItem("data-theme")?.value ?? "dark";
+      const newTheme = _theme === "dark" ? "light" : "dark";
+
+      _html.setAttribute("data-theme", newTheme);
+      localStorage?.setItem?.("theme", newTheme);
+    };
+
+    const mediaMatcher = window.matchMedia("(prefers-color-scheme: light)");
+    mediaMatcher.addEventListener("change", (event) => {
+      toggle();
+    });
+
+    Object.assign(window, {
+      theme: {
+        getPreference,
+        toggle,
+      },
+    });
+  </script>
 </head>

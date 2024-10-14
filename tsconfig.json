@@ -7,5 +7,12 @@
       "layouts/*": ["layouts/*"],
       "pages/*": ["pages/*"]
     }
-  }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.js",
+    "src/**/*.astro",
+    ".lin-git-commit-msg/*.js"
+  ]
 }
