@@ -51,6 +51,10 @@ in {
     enable = true;
     targets = [ "/" ];
   };
+  formatJavaScript = {
+    enable = true;
+    targets = [ "/" ];
+  };
   inputs = { inherit nixpkgs; };
 
 }

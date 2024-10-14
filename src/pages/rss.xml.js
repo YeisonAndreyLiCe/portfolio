@@ -8,7 +8,7 @@ const parser = new MarkdownIt();
 export async function GET(context) {
   const blog = await getCollection("posts");
   const pagesItems = await pagesGlobToRssItems(
-    import.meta.glob("./posts/*.{md,mdx}"),
+    import.meta.glob("./posts/*.{md,mdx}")
   );
 
   return rss({
