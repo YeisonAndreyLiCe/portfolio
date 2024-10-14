@@ -1,3 +1,7 @@
+---
+import Icon from "components/Icon.astro";
+---
+
 <section>
   <span> Hi, my name is </span>
   <h2><a href="/about">Yeison Liscano</a></h2>
@@ -10,9 +14,17 @@
     engineer, I’m also an avid writer, sharing insights on web development,
     programming, data science, and the latest in technology.
   </p>
-  <button>
-    <a href="/posts">Read Last Post</a>
-  </button>
+  <div>
+    <button>
+      <a href="/posts">Read Last Post</a>
+    </button>
+    <a href="https://www.linkedin.com/in/yeison-andrey-lice/">
+      <Icon icon="linkedin" size="35px" color="white" />
+    </a>
+    <a href="https://github.com/YeisonAndreyLiCe">
+      <Icon icon="github" size="35px" color="white" />
+    </a>
+  </div>
 </section>
 
 <style>
