@@ -7,8 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
-      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
-        name: __all__
+      - uses: docker://ghcr.io/fluidattacks/makes:24.09
         with:
           args: sh -c "chown -R root:root ${HOME} && nix-env -if . && m . __all__"
 
@@ -16,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
-      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+      - uses: docker://ghcr.io/fluidattacks/makes:24.09
         name: /formatBash
         with:
           args: sh -c "chown -R root:root ${HOME} && nix-env -if . && m . /formatBash"
@@ -25,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
-      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+      - uses: docker://ghcr.io/fluidattacks/makes:24.09
         name: /formatNix
         with:
           args: sh -c "chown -R root:root ${HOME} && nix-env -if . && m . /formatNix"
@@ -34,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
-      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+      - uses: docker://ghcr.io/fluidattacks/makes:24.09
         name: /formatYaml
         with:
           args: sh -c "chown -R root:root ${HOME} && nix-env -if . && m . /formatYaml"
@@ -43,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
-      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+      - uses: docker://ghcr.io/fluidattacks/makes:24.09
         name: /lintBash
         with:
           args: sh -c "chown -R root:root ${HOME} && nix-env -if . && m . /lintBash"
@@ -54,7 +53,7 @@ jobs:
       - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
         with:
           fetch-depth: 0
-      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+      - uses: docker://ghcr.io/fluidattacks/makes:24.09
         name: /lintGitCommitMsg
         with:
           args: sh -c "chown -R root:root ${HOME} && nix-env -if . && m . /lintGitCommitMsg"
@@ -63,7 +62,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
-      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+      - uses: docker://ghcr.io/fluidattacks/makes:24.09
         name: /lintMarkdown/all
         with:
           args: sh -c "chown -R root:root ${HOME} && nix-env -if . && m . /lintMarkdown/all"
@@ -72,7 +71,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
-      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+      - uses: docker://ghcr.io/fluidattacks/makes:24.09
         name: /lintNix
         with:
           args: sh -c "chown -R root:root ${HOME} && nix-env -if . && m . /lintNix"
