@@ -13,6 +13,7 @@
     "src/**/*.tsx",
     "src/**/*.js",
     "src/**/*.astro",
-    ".lin-git-commit-msg/*.js"
+    ".lin-git-commit-msg/*.js",
+    "*.ts"
   ]
 }

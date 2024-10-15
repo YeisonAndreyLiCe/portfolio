@@ -11,7 +11,10 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
     "plugin:astro/recommended",
-    "prettier"
+    "prettier",
+    "plugin:mdx/recommended",
+    "plugin:astro/recommended"
+
   ],
   "overrides": [
     {
@@ -21,6 +24,10 @@
         "parser": "@typescript-eslint/parser",
         "extraFileExtensions": [".astro"]
       }
+    },
+    {
+      "files": ["*.ts"],
+      "parser": "@typescript-eslint/parser"
     }
   ]
 }
