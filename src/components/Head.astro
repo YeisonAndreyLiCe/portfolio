@@ -100,7 +100,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     };
 
     const mediaMatcher = window.matchMedia("(prefers-color-scheme: light)");
-    mediaMatcher.addEventListener("change", (event) => {
+    mediaMatcher.addEventListener("change", () => {
       toggle();
     });
 

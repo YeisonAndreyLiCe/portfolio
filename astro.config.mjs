@@ -5,7 +5,9 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://yeisonandreylice.github.io/portfolio/",
+  site: "https://yeisonandreylice.github.io",
+  base: "/portfolio/",
+  trailingSlash: "always",
   integrations: [
     mdx({
       syntaxHighlight: "shiki",
