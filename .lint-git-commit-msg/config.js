@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const HEADER_LENGTH_MAX = 82;
 const LINE_LENGTH_MAX = 72;
 const BODY_LENGTH_MIN = 15;

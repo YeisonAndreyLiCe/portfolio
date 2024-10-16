@@ -47,6 +47,7 @@ TMPDIR
 tsconfigs
 typeof
 uwsgi
+tseslint
 xvfb
 YALC
 Yeison

@@ -16,5 +16,6 @@
     ".lin-git-commit-msg/*.js",
     "*.ts",
     "*.mjs",
+    "cypress/*.ts",
   ]
 }
