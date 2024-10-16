@@ -14,6 +14,7 @@
     "src/**/*.js",
     "src/**/*.astro",
     ".lin-git-commit-msg/*.js",
-    "*.ts"
+    "*.ts",
+    "*.mjs",
   ]
 }

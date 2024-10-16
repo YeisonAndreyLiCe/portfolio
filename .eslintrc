@@ -11,7 +11,7 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
     "plugin:astro/recommended",
-    "prettier",
+    "eslint-config-prettier",
     "plugin:mdx/recommended",
     "plugin:astro/recommended"
 
