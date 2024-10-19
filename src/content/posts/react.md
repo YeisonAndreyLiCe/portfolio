@@ -4,7 +4,7 @@ pubDate: 2024-10-06
 description: "This is a React page."
 image: "react_project.png"
 tags: ["react", "javascript", "typescript"]
-readingTime: "1 min read"
+readingTime: 1
 layout: "../../layouts/Base.astro"
 snippet:
   language: "html"

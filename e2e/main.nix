@@ -30,7 +30,7 @@ let
     };
 in makeTemplate {
   template = ./template.sh;
-  name = "cypress-fa";
+  name = "cypress";
   replace = {
     __argCypress__ = bin;
     __argIsLinux__ = builtins.toString isLinux;

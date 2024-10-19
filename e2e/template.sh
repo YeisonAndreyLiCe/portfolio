@@ -10,7 +10,7 @@ function _create_tmp_dir {
     && copy "${source}" "${target}"
 }
 
-function run_cypress_fa {
+function run_cypress {
   local browser="${1-}"
   local action="${2-}"
   local spec="${3-}"

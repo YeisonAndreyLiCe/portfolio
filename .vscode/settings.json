@@ -33,7 +33,13 @@
     "typescriptreact",
     "astro"
   ],
-  "eslint.workingDirectories": ["."],
+  "eslint.workingDirectories": [
+    ".",
+    {
+      "directory": "./e2e",
+      "changeProcessCWD": true
+    }
+  ],
   "files.eol": "\n",
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,

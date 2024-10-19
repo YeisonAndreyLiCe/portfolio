@@ -2,23 +2,28 @@
 import Base from "../layouts/Base.astro";
 import PostPreview from "components/PostPreview.astro";
 import MyHero from "components/MyHero.astro";
+import { getEntry } from "astro:content";
 
-const allPosts = await Astro.glob("../content/posts/*.md");
+const postsNames = ["python", "react"];
+const postsPromises = postsNames.map((post) => getEntry("posts", post));
+const posts = (await Promise.all(postsPromises)).filter(
+  (post) => post !== undefined,
+);
 ---
 
 <Base title="Yeison Liscano" description="Blog posts about web development">
   <MyHero />
   <section class="posts-preview">
     {
-      allPosts.map((post) => (
+      posts.map((post) => (
         <PostPreview
-          title={post?.frontmatter?.title}
-          pubDate={post?.frontmatter?.pubDate.split("T")[0]}
-          description={post?.frontmatter?.description}
-          tags={post?.frontmatter?.tags}
-          slug={post?.frontmatter.title.toLowerCase().replace(/\s/g, "-")}
-          readingTime={post?.frontmatter?.readingTime}
-          snippet={post?.frontmatter?.snippet}
+          title={post.data.title}
+          pubDate={post.data.pubDate}
+          description={post.data.description}
+          tags={post.data.tags}
+          slug={post.slug}
+          readingTime={post.data.readingTime}
+          snippet={post.data.snippet}
         />
       ))
     }
