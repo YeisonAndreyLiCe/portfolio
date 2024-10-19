@@ -1,23 +1,31 @@
-import globals from "globals";
-import pluginJs from "@eslint/js";
+import eslint from "@eslint/js";
 import tseslint from "typescript-eslint";
-import mdx from "eslint-plugin-mdx";
-import prettierConfig from "eslint-config-prettier";
-import astro from "eslint-plugin-astro";
+import eslintConfigPrettier from "eslint-config-prettier";
+import eslintPluginAstro from "eslint-plugin-astro";
+import * as mdx from "eslint-plugin-mdx";
+import markdown from "eslint-plugin-markdown";
 
 export default [
-  { files: ["**/*.{js,mjs,cjs,ts, astro, mdx, md}"] },
+  mdx.flat,
+  eslint.configs.recommended,
+  eslintConfigPrettier,
+  ...tseslint.configs.recommendedTypeChecked,
+  ...eslintPluginAstro.configs.recommended,
+  { ignores: ["node_modules/*", ".astro/*", "e2e/*", "dist/*"] },
   {
-    ignores: [".astro/*"],
-  },
-  {
+    files: ["**/*.{ts,tsx,js,jsx,mjs,cjs,astro}"],
     languageOptions: {
-      globals: { ...globals.browser, theme: "readonly" },
+      parserOptions: {
+        parser: "@typescript-eslint/parser",
+        project: "./tsconfig.json",
+        tsconfigDirName: import.meta.dirname,
+        extraFileExtensions: [".astro"],
+      },
     },
   },
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
-  prettierConfig,
-  mdx.flat,
-  ...astro.configs.recommended,
+  {
+    files: ["**/*.{js,astro}"],
+    ...tseslint.configs.disableTypeChecked,
+  },
+  ...markdown.configs.recommended,
 ];

@@ -1,10 +1,11 @@
 ---
 import Icon from "components/Icon.astro";
+const { BASE_URL } = import.meta.env;
 ---
 
 <section>
   <span> Hi, my name is </span>
-  <h2><a href="/about">Yeison Liscano</a></h2>
+  <h2><a href={BASE_URL + "about/"}>Yeison Liscano</a></h2>
   <p>
     I’m passionate about building innovative web applications and solving
     complex problems through technology. With expertise in <strong
@@ -16,7 +17,7 @@ import Icon from "components/Icon.astro";
   </p>
   <div>
     <button>
-      <a href="/posts">Read Last Post</a>
+      <a href={BASE_URL + "posts/"}>Read Last Post</a>
     </button>
     <a href="https://www.linkedin.com/in/yeison-andrey-lice/">
       <Icon icon="linkedin" size="35px" color="white" />

@@ -1,24 +1,25 @@
 ---
 import { Code } from "astro:components";
 import type { BuiltinLanguage } from "shiki";
+const { BASE_URL } = import.meta.env;
 
 interface Props {
   title: string;
   description: string;
   tags: string[];
   slug: string;
-  readingTime: string;
-  pubDate: string;
+  readingTime: number;
+  pubDate: Date;
   snippet: {
     language: BuiltinLanguage;
     code: string;
   };
 }
 
-const { title, slug, pubDate, description, tags, readingTime, snippet } =
-  Astro.props;
+const { title, pubDate, description, tags, readingTime, snippet } = Astro.props;
 
 const date = new Date(pubDate).toDateString();
+const postUrl = `${BASE_URL}posts/${title.toLowerCase().replace(/\s/g, "-")}/`;
 ---
 
 <div class="preview-container">
@@ -26,12 +27,12 @@ const date = new Date(pubDate).toDateString();
     <div>
       <div>
         <h2>
-          <a href={`/posts/${slug}`}>
+          <a href={postUrl}>
             {title}
           </a>
         </h2>
         {readingTime}
-        <time datetime={pubDate}>
+        <time datetime={pubDate.toDateString()}>
           {date}
         </time>
       </div>
@@ -41,22 +42,18 @@ const date = new Date(pubDate).toDateString();
       {
         tags.map((tag) => (
           <button class="tag">
-            <a href={`/tags/${tag.toLocaleLowerCase().replace(/\s/g, "-")}`}>
-              {tag[0].toUpperCase() + tag.slice(1)}
-            </a>
+            <a href={postUrl}>{tag[0].toUpperCase() + tag.slice(1)}</a>
           </button>
         ))
       }
       <button class="tag">
-        <a href={`/posts/${slug}`}>Read Post</a>
+        <a href={postUrl}>Read Post</a>
       </button>
     </div>
   </div>
   <div class="container-like-image">
     <button class="code-tag">
-      <a
-        href={`/posts/${snippet.language.toLocaleLowerCase().replace(/\s/g, "-")}`}
-      >
+      <a href={postUrl}>
         {snippet.language[0].toUpperCase() + snippet.language.slice(1)}
       </a>
     </button>

@@ -8,10 +8,14 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "eslint": "eslint",
+    "check": "astro check",
+    "eslint": "eslint --config eslint.config.js --fix .",
+    "cy:eslint": "eslint 'e2e/specs/*.ts' --config e2e/eslint.config.js --fix",
     "format:check": "prettier --check .",
     "format::write": "prettier --write .",
-    "test": "vitest --config vitest.config.js --watch=false --coverage"
+    "test": "vitest --config vitest.config.js --watch=false --coverage",
+    "cy:run:chrome": "cypress run --browser chrome",
+    "cy:run:firefox": "cypress run --browser firefox"
   },
   "dependencies": {
     "@astrojs/check": "0.9.4",

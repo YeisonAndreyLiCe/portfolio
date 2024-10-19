@@ -2,6 +2,8 @@
 import ThemeToggle from "components/ThemeToggle.astro";
 import Icon from "components/Icon.astro";
 
+const { BASE_URL } = import.meta.env;
+
 interface Props {
   titles: string[];
 }
@@ -12,11 +14,13 @@ const { titles } = Astro.props;
 <header>
   <nav class="menu-hidden" id="navbar">
     <ul>
-      <li id="logo"><a href="/">YALC</a></li>
+      <li id="logo"><a href={BASE_URL}>YALC</a></li>
       {
         titles.map((title) => (
           <li>
-            <a href={"/" + title.toLocaleLowerCase().replace(/\s/g, "-")}>
+            <a
+              href={`${BASE_URL}${title.toLocaleLowerCase().replace(/\s/g, "-")}/`}
+            >
               {title}
             </a>
           </li>
