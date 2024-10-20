@@ -27,5 +27,6 @@ export default [
     files: ["**/*.{js,astro}"],
     ...tseslint.configs.disableTypeChecked,
   },
+  // @ts-expect-error, types not yet updated
   ...markdown.configs.recommended,
 ];

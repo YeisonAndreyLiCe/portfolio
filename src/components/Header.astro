@@ -35,32 +35,35 @@ const { titles } = Astro.props;
 </header>
 <script>
   // collapse and expand the menu on mobile
-  const _navbar = document.getElementById("navbar");
-  if (_navbar !== null) {
-    const observer = new MutationObserver(() => {
-      const _themeToggle = document.getElementById("theme-toggle");
-      if (_themeToggle) {
-        _themeToggle.addEventListener("click", window.theme.toggle);
-      }
-    });
-    observer.observe(_navbar, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
+  const wrapperFN1 = () => {
+    const navbarElement = document.getElementById("navbar");
+    if (navbarElement !== null) {
+      const observer = new MutationObserver(() => {
+        const toggle = document.getElementById("theme-toggle");
+        if (toggle) {
+          toggle.addEventListener("click", window.theme.toggle);
+        }
+      });
+      observer.observe(navbarElement, {
+        attributes: true,
+        attributeFilter: ["class"],
+      });
 
-    const toggleShowMenu = document.getElementById("toggle-show-menu");
-    const items = _navbar.innerHTML;
+      const toggleShowMenu = document.getElementById("toggle-show-menu");
+      const items = navbarElement.innerHTML;
 
-    toggleShowMenu?.addEventListener("click", () => {
-      _navbar.innerHTML = "";
-      _navbar.classList.toggle("menu-hidden");
-      if (_navbar.classList.contains("menu-hidden")) {
-        _navbar.innerHTML = "";
-      } else {
-        _navbar.innerHTML = items;
-      }
-    });
-  }
+      toggleShowMenu?.addEventListener("click", () => {
+        navbarElement.innerHTML = "";
+        navbarElement.classList.toggle("menu-hidden");
+        if (navbarElement.classList.contains("menu-hidden")) {
+          navbarElement.innerHTML = "";
+        } else {
+          navbarElement.innerHTML = items;
+        }
+      });
+    }
+  };
+  wrapperFN1();
 </script>
 
 <style>

@@ -6,7 +6,7 @@ jobs:
   formatBash:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: actions/checkout@163217dfcd28294438ea1c1c149cfaf66eec283e
       - uses: docker://ghcr.io/fluidattacks/makes:24.09
         name: /formatBash
         with:
@@ -15,7 +15,7 @@ jobs:
   formatNix:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: actions/checkout@163217dfcd28294438ea1c1c149cfaf66eec283e
       - uses: docker://ghcr.io/fluidattacks/makes:24.09
         name: /formatNix
         with:
@@ -24,16 +24,38 @@ jobs:
   lintBash:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: actions/checkout@163217dfcd28294438ea1c1c149cfaf66eec283e
       - uses: docker://ghcr.io/fluidattacks/makes:24.09
         name: /lintBash
         with:
           args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /lintBash"
 
+  lintMarkdown_all:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@163217dfcd28294438ea1c1c149cfaf66eec283e
+      - uses: docker://ghcr.io/fluidattacks/makes:24.09
+        name: /lintMarkdown/all
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /lintMarkdown/all"
+
+  eslintAndPrettier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@163217dfcd28294438ea1c1c149cfaf66eec283e
+      - uses: actions/setup-node@aca7b64a59c0063db8564e0ffdadd3887f1cbae5
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm run eslint
+      - run: npm run format:check
+      - run: npm run check
+      - run: npm run cy:eslint
+
   lintGitCommitMsg:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: actions/checkout@163217dfcd28294438ea1c1c149cfaf66eec283e
         with:
           fetch-depth: 0
       - uses: docker://ghcr.io/fluidattacks/makes:24.09
@@ -41,33 +63,9 @@ jobs:
         with:
           args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /lintGitCommitMsg"
 
-  lintMarkdown_all:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
-      - uses: docker://ghcr.io/fluidattacks/makes:24.09
-        name: /lintMarkdown/all
-        with:
-          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /lintMarkdown/all"
-
-  lintNix:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
-      - uses: docker://ghcr.io/fluidattacks/makes:24.09
-        name: /lintNix
-        with:
-          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /lintNix"
-
-  lintCode:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
-      - uses: docker://ghcr.io/fluidattacks/makes:24.09
-        name: /lintCode
-        with:
-          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /checkers/lint"
 name: dev
 on:
   pull_request:
     branches: [main]
+  push:
+    branches: [development]

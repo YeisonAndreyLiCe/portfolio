@@ -1,1 +1,1 @@
-: && m . /checkers/hooks/pre-push
+: && m . /lint/hooks/pre-push

@@ -17,6 +17,11 @@ export default [
     },
   },
   ...tseslint.configs.recommendedTypeChecked,
-  functional.configs.recommended,
+  functional.configs.lite,
   prettierConfig,
+  {
+    rules: {
+      "functional/no-return-void": "off",
+    },
+  },
 ];
