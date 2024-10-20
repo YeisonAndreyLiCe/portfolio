@@ -27,6 +27,12 @@
   height: 100%;
 
   line-height: 1.5;
+
+  .astro-code {
+    padding: 20px;
+    border-radius: 4px;
+    background-color: var(--code-background) !important;
+  }
 }
 
 [data-theme="light"] {
@@ -35,7 +41,7 @@
   --neutral: #7ab2b2;
   --contrast: #4d869c;
   --text-color: #1d2d50;
-  --code-background: #f0f0f0;
+  --code-background: #edf2f2;
 }
 
 @media (prefers-color-scheme: light) {

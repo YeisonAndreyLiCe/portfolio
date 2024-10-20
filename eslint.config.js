@@ -6,7 +6,6 @@ import * as mdx from "eslint-plugin-mdx";
 import markdown from "eslint-plugin-markdown";
 
 export default [
-  mdx.flat,
   eslint.configs.recommended,
   eslintConfigPrettier,
   ...tseslint.configs.recommendedTypeChecked,
@@ -24,8 +23,12 @@ export default [
     },
   },
   {
-    files: ["**/*.{js,astro}"],
+    files: ["**/*.{js,astro,mdx}"],
     ...tseslint.configs.disableTypeChecked,
+  },
+  {
+    files: ["**/*.mdx"],
+    ...mdx.flat,
   },
   // @ts-expect-error, types not yet updated
   ...markdown.configs.recommended,

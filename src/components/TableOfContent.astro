@@ -1,0 +1,100 @@
+---
+interface IHeading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+export interface Props {
+  headings: IHeading[];
+}
+
+const { headings } = Astro.props;
+---
+
+<aside>
+  <h4>Table of contents</h4>
+  <ul>
+    {
+      headings.map((heading) => (
+        <li class={`h-${heading.depth}`}>
+          <a href={`#${heading.slug}`}>{heading.text}</a>
+        </li>
+      ))
+    }
+  </ul>
+</aside>
+
+<style>
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--text-color);
+  }
+
+  a:hover {
+    color: var(--primary);
+  }
+
+  li:hover {
+    background-color: var(--contrast);
+  }
+
+  li:hover a {
+    color: var(--primary);
+  }
+
+  li {
+    padding: 8px;
+  }
+
+  .h-1 {
+    font-size: 1rem;
+  }
+
+  .h-2 {
+    font-size: 0.9rem;
+    padding-left: 15px;
+  }
+
+  .h-3 {
+    font-size: 0.8rem;
+    padding-left: 30px;
+  }
+
+  .h-4 {
+    font-size: 0.7rem;
+    padding-left: 45px;
+  }
+
+  .h-5 {
+    font-size: 0.6rem;
+    padding-left: 60px;
+  }
+
+  .h-6 {
+    font-size: 0.4rem;
+    padding-left: 75px;
+  }
+
+  @media (min-width: 992px) {
+    aside {
+      position: fixed;
+      left: 20px;
+      top: 70px;
+    }
+
+    li {
+      padding: 8px;
+    }
+  }
+</style>

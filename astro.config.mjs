@@ -8,6 +8,12 @@ export default defineConfig({
   site: "https://yeisonandreylice.github.io",
   base: "/portfolio/",
   trailingSlash: "always",
+  markdown: {
+    syntaxHighlight: "shiki",
+    shikiConfig: {
+      theme: "tokyo-night",
+    },
+  },
   integrations: [
     mdx({
       syntaxHighlight: "shiki",
