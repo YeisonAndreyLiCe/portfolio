@@ -12,6 +12,7 @@ export default defineConfig({
     syntaxHighlight: "shiki",
     shikiConfig: {
       theme: "tokyo-night",
+      wrap: true,
     },
   },
   integrations: [
@@ -19,6 +20,7 @@ export default defineConfig({
       syntaxHighlight: "shiki",
       shikiConfig: {
         theme: "tokyo-night",
+        wrap: true,
       },
     }),
     sitemap(),
