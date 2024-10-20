@@ -20,9 +20,26 @@ const blogCollection = defineCollection({
     footnote: z.string().optional(),
     pubDate: z.date(),
     description: z.string(),
-    readingTime: z.number(),
+    readingTime: z.string().default("1 min read"),
   }),
 });
+
+type IPostFrontmatter = {
+  isDraft: boolean;
+  title: string;
+  snippet: {
+    code: string;
+    language: BuiltinLanguage;
+  };
+  author: string;
+  tags: string[];
+  footnote?: string;
+  pubDate: Date;
+  description: string;
+  readingTime: string;
+};
+
+export type { IPostFrontmatter };
 
 export const collections = {
   posts: blogCollection,
