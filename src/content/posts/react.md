@@ -2,10 +2,8 @@
 title: React
 pubDate: 2024-10-06
 description: "This is a React page."
-image: "react_project.png"
 tags: ["react", "javascript", "typescript"]
-readingTime: 1
-layout: "../../layouts/Base.astro"
+layout: "../../layouts/Post.astro"
 snippet:
   language: "html"
   code: "

@@ -1,0 +1,51 @@
+---
+title: Python
+pubDate: 2024-10-06
+description: "Let's explore the best of Python"
+tags: ["python"]
+layout: "../../layouts/Post.astro"
+snippet:
+  language: "python"
+  code: "def read_large_file(filename):\n
+    with open(filename) as file:\n
+        while True:\n
+            chunk = file.read(1000)\n
+            if not chunk:\n
+                break\n
+            yield chunk\n
+
+for chunk in read_large_file('file.txt'):\n
+    print(chunk)"
+---
+
+# Python
+
+The simplicity the Python makes the language a great option for almost everyone
+aiming to use programming in any field. This is the reason Python is widely
+used in the industry, from web development, data science, machine learning,
+automation, scientific computing, and more. Having a huge community, and a vast
+number of libraries, Python is a great choice for beginners and experts alike.
+
+In this post, we will explore some of the best features of Python, and how you
+can use them to your advantage.
+
+## Generators
+
+Generators are a great way to work with large files, or large data sets. They
+allow you to work with data in chunks, without having to load the entire data
+into memory.
+
+```python
+import aiofiles
+import asyncio
+import json
+
+
+async def main():
+    async with aiofiles.open("article.json", mode="r") as file:
+        contents = await file.read()
+        data = json.loads(contents)
+        print(data)
+
+asyncio.run(main())
+```

@@ -3,7 +3,9 @@ aboutfeeds
 Andrey
 astro
 astrojs
+aiofiles
 backface
+asyncio
 bezier
 blockquote
 builtins
@@ -50,4 +52,5 @@ uwsgi
 tseslint
 xvfb
 YALC
+mdast
 Yeison

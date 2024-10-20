@@ -4,6 +4,7 @@ import sanitizeHtml from "sanitize-html";
 import MarkdownIt from "markdown-it";
 
 const parser = new MarkdownIt();
+const BASE_URL = import.meta.env.BASE_URL;
 
 /**
  * @param {{ site: any; }} context
@@ -19,7 +20,7 @@ export async function GET(context) {
       content: sanitizeHtml(parser.render(post.body), {
         allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
       }),
-      link: `/blog/${post.slug}/`,
+      link: `${BASE_URL}/blog/${post.slug}/`,
       ...post.data,
     })),
   });
