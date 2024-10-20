@@ -57,7 +57,12 @@ const postUrl = `${BASE_URL}posts/${title.toLowerCase().replace(/\s/g, "-")}/`;
         {snippet.language[0].toUpperCase() + snippet.language.slice(1)}
       </a>
     </button>
-    <Code code={snippet.code} lang={snippet.language} theme="tokyo-night" />
+    <Code
+      code={snippet.code}
+      lang={snippet.language}
+      theme="tokyo-night"
+      wrap={true}
+    />
   </div>
 </div>
 
@@ -74,7 +79,9 @@ const postUrl = `${BASE_URL}posts/${title.toLowerCase().replace(/\s/g, "-")}/`;
   .description-container > div > div {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    gap: 8px;
   }
 
   a {
@@ -101,6 +108,7 @@ const postUrl = `${BASE_URL}posts/${title.toLowerCase().replace(/\s/g, "-")}/`;
 
   .tags-container {
     display: flex;
+    flex-direction: column;
     gap: 8px;
   }
 
@@ -188,6 +196,13 @@ const postUrl = `${BASE_URL}posts/${title.toLowerCase().replace(/\s/g, "-")}/`;
       margin-left: -100px;
       opacity: 0.9;
       grid-row: 1 / 4;
+    }
+    .tags-container {
+      flex-direction: row;
+    }
+
+    .description-container > div > div {
+      flex-direction: row;
     }
   }
 </style>

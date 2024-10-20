@@ -16,7 +16,7 @@ const code = `<publishDate>${new Date(pubDate).toDateString()}</publishDate>
 
 <div>
   <slot />
-  <Code lang={"xml"} code={code} theme="tokyo-night" />
+  <Code lang={"xml"} code={code} theme="tokyo-night" wrap={true} />
 </div>
 <hr />
 
