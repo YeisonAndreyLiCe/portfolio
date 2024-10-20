@@ -16,25 +16,6 @@ const contactInfo = `{
   title="contact information Yeison Liscano"
   description="Yeison Liscano contact information"
 >
-  <section>
-    <h1>Contact Information</h1>
-    <Code code={contactInfo} lang={"js"} />
-  </section>
+  <h1>Contact Information</h1>
+  <Code code={contactInfo} lang={"js"} wrap={true} />
 </BaseLayout>
-
-<style>
-  section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    max-width: 1000px;
-    gap: 10px;
-    height: 100%;
-  }
-
-  h1 {
-    color: var(--contrast);
-  }
-</style>
