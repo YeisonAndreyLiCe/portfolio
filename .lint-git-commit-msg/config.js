@@ -48,9 +48,10 @@ module.exports = {
   plugins: [
     {
       rules: {
+        // @ts-expect-error, types not yet updated
         "type-fix-plugin": ({ type, body }) => {
           const COMMIT_TYPE = "fix";
-          const checkBody = (body) =>
+          const checkBody = (/** @type {string} */ body) =>
             /- commit: ([a-zA-Z0-9]{40}|N\/A)/.test(body);
 
           if (type?.includes(COMMIT_TYPE)) {

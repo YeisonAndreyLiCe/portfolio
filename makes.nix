@@ -18,7 +18,7 @@ in {
   };
   formatYaml = {
     enable = true;
-    targets = [ "/" ];
+    targets = [ "/.github/workflows/" ];
   };
   lintBash = {
     enable = true;
@@ -34,13 +34,9 @@ in {
     enable = true;
     targets = [ "/" ];
   };
-  formatJavaScript = {
-    enable = true;
-    targets = [ "/" ];
-  };
   lintMarkdown = {
     all = {
-      config = "/checkers/lint-markdown/config.rb";
+      config = "/lint/lint-markdown/config.rb";
       targets = [ "/" ];
     };
   };

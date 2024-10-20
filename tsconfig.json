@@ -1,6 +1,8 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "jsx": "preserve",
+    "checkJs": true,
     "verbatimModuleSyntax": true,
     "plugins": [{ "name": "@astrojs/ts-plugin" }],
     "baseUrl": "src",
@@ -16,8 +18,8 @@
     "**/*.mjs",
     "**/*.astro",
     "**/*.mdx",
-    "./.lint-git-commit-msg/*.js",
-    "**/*.md"
+    "**/*.md",
+    "./.lint-git-commit-msg/*.js"
   ],
   "exclude": [".astro", "e2e", "node_modules"]
 }

@@ -4,4 +4,3 @@ makeScript {
   name = "lint-code";
   searchPaths = { bin = [ inputs.nixpkgs.nodejs_22 ]; };
 }
-
