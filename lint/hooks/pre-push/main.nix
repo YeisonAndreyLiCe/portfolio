@@ -6,5 +6,6 @@ makeScript {
     outputs."/lint/spell-checker"
     outputs."/lintGitCommitMsg"
     outputs."/formatYaml"
+    outputs."/formatBash"
   ];
 }

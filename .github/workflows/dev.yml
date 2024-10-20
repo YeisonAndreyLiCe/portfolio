@@ -12,15 +12,6 @@ jobs:
         with:
           args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /formatBash"
 
-  formatNix:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@163217dfcd28294438ea1c1c149cfaf66eec283e
-      - uses: docker://ghcr.io/fluidattacks/makes:24.09
-        name: /formatNix
-        with:
-          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /formatNix"
-
   lintBash:
     runs-on: ubuntu-latest
     steps:
@@ -30,6 +21,15 @@ jobs:
         with:
           args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /lintBash"
 
+  lintFormatNix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@163217dfcd28294438ea1c1c149cfaf66eec283e
+      - uses: docker://ghcr.io/fluidattacks/makes:24.09
+        name: /formatNix
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /lint/lint-format-nix"
+
   lintMarkdown_all:
     runs-on: ubuntu-latest
     steps:
@@ -38,6 +38,17 @@ jobs:
         name: /lintMarkdown/all
         with:
           args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /lintMarkdown/all"
+
+  lintGitCommitMsg:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@163217dfcd28294438ea1c1c149cfaf66eec283e
+        with:
+          fetch-depth: 0
+      - uses: docker://ghcr.io/fluidattacks/makes:24.09
+        name: /lintGitCommitMsg
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /lintGitCommitMsg"
 
   eslintAndPrettier:
     runs-on: ubuntu-latest
@@ -52,20 +63,16 @@ jobs:
       - run: npm run check
       - run: npm run cy:eslint
 
-  lintGitCommitMsg:
+  cypress-run:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@163217dfcd28294438ea1c1c149cfaf66eec283e
+      - uses: cypress-io/github-action@40cfd368ca72ba2bcbe95f70ddcc66136ca3183d
         with:
-          fetch-depth: 0
-      - uses: docker://ghcr.io/fluidattacks/makes:24.09
-        name: /lintGitCommitMsg
-        with:
-          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /lintGitCommitMsg"
+          build: npm run build
+          start: npm start
 
 name: dev
 on:
   pull_request:
     branches: [main]
-  push:
-    branches: [development]
