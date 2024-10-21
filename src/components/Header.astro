@@ -12,7 +12,10 @@ const { titles } = Astro.props;
 ---
 
 <header>
-  <nav class="menu-hidden" id="navbar">
+  <nav class="menu-hidden sidebar" id="navbar">
+    <button id="hide-menu">
+      <Icon icon="x" size="35px" />
+    </button>
     <ul>
       <li id="logo"><a href={BASE_URL}>YALC</a></li>
       {
@@ -29,8 +32,8 @@ const { titles } = Astro.props;
     </ul>
     <ThemeToggle />
   </nav>
-  <button id="toggle-show-menu">
-    <Icon icon="list" size="35px" color="red" />
+  <button id="show-menu">
+    <Icon icon="list" size="35px" />
   </button>
 </header>
 <script>
@@ -49,17 +52,17 @@ const { titles } = Astro.props;
         attributeFilter: ["class"],
       });
 
-      const toggleShowMenu = document.getElementById("toggle-show-menu");
+      const showMenu = document.getElementById("show-menu");
       const items = navbarElement.innerHTML;
 
-      toggleShowMenu?.addEventListener("click", () => {
-        navbarElement.innerHTML = "";
-        navbarElement.classList.toggle("menu-hidden");
-        if (navbarElement.classList.contains("menu-hidden")) {
+      showMenu?.addEventListener("click", () => {
+        navbarElement.classList.remove("menu-hidden");
+        navbarElement.innerHTML = items;
+        const hideMenu = document.getElementById("hide-menu");
+        hideMenu?.addEventListener("click", () => {
+          navbarElement.classList.add("menu-hidden");
           navbarElement.innerHTML = "";
-        } else {
-          navbarElement.innerHTML = items;
-        }
+        });
       });
     }
   };
@@ -68,20 +71,29 @@ const { titles } = Astro.props;
 
 <style>
   header {
-    background-image: linear-gradient(45deg, var(--secondary), var(--primary));
+    display: flex;
+    background-color: var(--primary);
+    justify-content: end;
     padding-top: 16px;
     padding-bottom: 16px;
     z-index: 1000;
     width: 100%;
   }
 
-  #toggle-show-menu {
-    display: block;
-    margin-left: 20px;
-    background-color: var(--contrast);
+  button {
+    background-color: var(--primary);
+    color: var(--text-color);
+    margin-right: 20px;
+    padding: 4px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+  }
+
+  #hide-menu {
+    position: absolute;
+    right: 20px;
+    top: 20px;
   }
 
   .menu-hidden {
@@ -89,10 +101,9 @@ const { titles } = Astro.props;
   }
 
   nav {
-    width: 100%;
-    background-color: var(--secondary);
+    width: 150px;
     position: absolute;
-    top: 70px;
+    right: 2px;
     gap: 20px;
     padding-bottom: 20px;
   }
@@ -100,13 +111,33 @@ const { titles } = Astro.props;
   nav ul {
     display: flex;
     flex-direction: column;
+    justify-content: end;
     list-style-type: none;
     width: 100%;
     gap: 20px;
   }
 
+  .sidebar {
+    position: fixed;
+    backdrop-filter: blur(10px);
+    background-color: var(--primary);
+    opacity: 0.95;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    box-shadow: -10px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .showClose {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+
   nav ul li {
-    width: 100%;
     padding: 20px;
   }
 
@@ -125,7 +156,14 @@ const { titles } = Astro.props;
   }
 
   @media screen and (min-width: 900px) {
-    #toggle-show-menu {
+    .sidebar {
+      position: relative;
+      height: auto;
+      justify-content: space-between;
+      width: 100%;
+      box-shadow: unset;
+    }
+    button {
       display: none;
       pointer-events: none;
     }
@@ -145,15 +183,9 @@ const { titles } = Astro.props;
       top: unset;
       background-color: unset;
       display: flex;
-      align-items: center;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
     }
     .menu-hidden {
       visibility: visible;
-      position: sticky;
-      top: 0;
     }
 
     nav ul {
