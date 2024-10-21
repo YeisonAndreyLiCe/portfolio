@@ -8,7 +8,7 @@ interface Props {
   size?: string;
 }
 
-const { color = "currentcolor", icon, size } = Astro.props;
+const { color = "none", icon, size } = Astro.props;
 const iconPath = iconPaths[icon];
 
 const attrs: HTMLAttributes<"svg"> = {};
