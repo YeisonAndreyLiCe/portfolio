@@ -31,12 +31,12 @@ const postUrl = `${BASE_URL}posts/${title.toLowerCase().replace(/\s/g, "-")}/`;
             {title}
           </a>
         </h2>
-        {readingTime}
         <time datetime={pubDate.toDateString()}>
           {date}
         </time>
       </div>
       <p>{description}</p>
+      {readingTime}
     </div>
     <div class="tags-container">
       {
@@ -67,13 +67,15 @@ const postUrl = `${BASE_URL}posts/${title.toLowerCase().replace(/\s/g, "-")}/`;
 </div>
 
 <style>
+  p {
+    white-space: break-spaces;
+  }
   .description-container {
     background-color: var(--secondary);
     padding: 8px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 150px;
   }
 
   .description-container > div > div {
@@ -98,6 +100,7 @@ const postUrl = `${BASE_URL}posts/${title.toLowerCase().replace(/\s/g, "-")}/`;
   pre {
     padding: 8px;
     color: var(--text-color);
+    border-top-left-radius: unset !important;
   }
 
   .code-tag {
@@ -168,34 +171,32 @@ const postUrl = `${BASE_URL}posts/${title.toLowerCase().replace(/\s/g, "-")}/`;
       margin-top: 24px;
       margin-bottom: 24px;
       align-content: center;
+      align-items: center;
     }
 
     .preview-container:nth-child(even) .description-container {
-      grid-column: 2 / 7;
+      grid-column: 1 / 7;
       z-index: 2;
       margin-right: -100px;
       opacity: 0.9;
-      grid-row: 1 / 4;
+      grid-row: 1 / 2;
     }
     .preview-container:nth-child(even) .container-like-image {
       align-items: start;
-      grid-column: 7 / 12;
+      grid-column: 7 / 13;
       z-index: 1;
-      grid-row: 2;
     }
 
     .preview-container:nth-child(odd) .container-like-image {
-      grid-column: 2 / 7;
+      grid-column: 1 / 7;
       z-index: 1;
-      grid-row: 2;
     }
     .preview-container:nth-child(odd) .description-container {
-      grid-column: 7 / 12;
+      grid-column: 7 / 13;
       z-index: 2;
-      opacity: 0.9;
       margin-left: -100px;
       opacity: 0.9;
-      grid-row: 1 / 4;
+      grid-row: 1 / 2;
     }
     .tags-container {
       flex-direction: row;
