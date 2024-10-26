@@ -38,6 +38,7 @@ const { headings } = Astro.props;
 
   a {
     text-decoration: none;
+    white-space: break-spaces;
     color: var(--text-color);
   }
 
@@ -89,8 +90,14 @@ const { headings } = Astro.props;
   @media (min-width: 992px) {
     aside {
       position: fixed;
-      left: 20px;
-      top: 70px;
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      left: 0px;
+      top: 85px;
+      max-width: 300px;
+      opacity: 0.95;
+      background-color: var(--code-background);
+      border-radius: 4px;
     }
 
     li {
