@@ -46,6 +46,8 @@ srcs
 srcs
 stylesheet
 TMPDIR
+Checksumming
+rerere
 tsconfigs
 typeof
 uwsgi

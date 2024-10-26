@@ -23,7 +23,7 @@ const code = `<publishDate>${new Date(pubDate).toDateString()}</publishDate>
 <style>
   hr {
     width: 100%;
-    max-width: 1000px;
+    max-width: var(--max-width);
     border: 1px solid var(--contrast);
   }
 
@@ -52,7 +52,7 @@ const code = `<publishDate>${new Date(pubDate).toDateString()}</publishDate>
     div {
       justify-content: end;
       padding: 20px 0px;
-      max-width: 1000px;
+      max-width: var(--max-width);
     }
   }
 </style>
