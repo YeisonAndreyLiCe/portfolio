@@ -9,19 +9,17 @@ const allPosts = (await getCollection("posts")).sort((left, right) => {
 ---
 
 <Base title="Blog | Yeison Liscano" description="Yeison Liscano Blog">
-  <section class="posts-preview">
-    {
-      allPosts.map((post) => (
-        <PostPreview
-          title={post.data.title}
-          pubDate={post.data.pubDate}
-          description={post.data.description}
-          tags={post.data.tags}
-          slug={post.slug}
-          readingTime={post.data?.readingTime}
-          snippet={post.data.snippet}
-        />
-      ))
-    }
-  </section>
+  {
+    allPosts.map((post) => (
+      <PostPreview
+        title={post.data.title}
+        pubDate={post.data.pubDate}
+        description={post.data.description}
+        tags={post.data.tags}
+        slug={post.slug}
+        readingTime={post.data?.readingTime}
+        snippet={post.data.snippet}
+      />
+    ))
+  }
 </Base>
