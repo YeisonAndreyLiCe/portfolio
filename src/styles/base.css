@@ -1,21 +1,16 @@
 :root {
-  --primary: #121210;
+  --primary: #1d2433;
   --secondary: #202125;
-  --alternative: #33807e;
-  --neutral: #0a4f60;
-  --contrast: #ffffff;
-  --text-color: #f0f0f0;
-  --text-color-low-contrast: #a5d5df;
-  --code-background: #282c34;
+  --neutral: #6679a4;
+  --contrast: #ffcc66;
+  --text-color: #d7dce2;
+  --text-color-low-contrast: #8695b7;
+  --code-background: #2f3b54;
 
-  background-image: linear-gradient(
-    45deg,
-    var(--primary),
-    var(--secondary),
-    var(--neutral)
-  );
-  background-size: 300% 300%;
+  --max-width: 720px;
+
   color: var(--text-color);
+  background-color: var(--primary);
   font-family:
     ui-monospace,
     SFMono-Regular,
@@ -29,19 +24,29 @@
   line-height: 1.5;
 
   .astro-code {
+    overflow-x: unset !important;
     padding: 20px;
     border-radius: 4px;
     background-color: var(--code-background) !important;
   }
+
+  a {
+    color: var(--contrast);
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: var(--contrast);
+  }
 }
 
 [data-theme="light"] {
-  --primary: #eef7ff;
-  --secondary: #cde8e5;
-  --neutral: #7ab2b2;
-  --contrast: #4d869c;
-  --text-color: #1d2d50;
-  --code-background: #edf2f2;
+  --primary: #ffffff;
+  --secondary: #ccd2d9;
+  --neutral: #dce0e8;
+  --contrast: #af63f7;
+  --text-color: #000000;
+  --code-background: #eff1f5;
 }
 
 @media (prefers-color-scheme: light) {
