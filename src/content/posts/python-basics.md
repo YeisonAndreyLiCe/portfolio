@@ -1,26 +1,20 @@
 ---
-title: Python
+title: Python Basics
 pubDate: 2024-10-26
-description: "Let's explore the basics of Python.
+description: "Python is a great language for beginners and experts alike.
+    Let's explore the basics of Python.
     From modules, packages, scope, and more.
-    Python is a great language for beginners and experts alike.
     Let's dive in!"
 tags: ["python"]
 layout: "../../layouts/Post.astro"
 snippet:
   language: "python"
-  code: "def outer():\n
-    x = 'local'\n
-    def inner():\n   nonlocal x\n   x = 'nonlocal'\n   print('inner:', x)\n
+  code: "def outer():\n  x = 'loc
+  al'\n  def inner():\n     nonlocal  x\n     x =
+   'nonlocal'\n     print('inner:', x)\n  inner()\n  print('outer:', x)\n
 
-    inner()\n
-    print('outer:', x)\n
-
-if __name__ == '__main__':\n
-    outer()"
+if __name__ == '__main__':\n   outer()"
 ---
-
-# Python
 
 The simplicity the Python makes the language a great option for almost everyone
 aiming to use programming in any field. This is the reason Python is widely
@@ -233,8 +227,8 @@ operator is represented by `**`.
 def add(x, y):
     return x + y
 
-nums = [3, 5]
-add(*nums) # 8
+numbers = [3, 5]
+add(*numbers) # 8
 ```
 
 ### Double Splat Operator
@@ -288,11 +282,11 @@ cabbage = vegetable
 def print_three_things(a, b, c):
     print('a = {0}, b = {1}, c = {2}'.format(a, b, c))
 
-mylist = ['aardvark', 'baboon', 'cat']
-print_three_things(*mylist)
+my_list = ['aardvark', 'baboon', 'cat']
+print_three_things(*my_list)
 
-mydict = {'a': 'apple', 'b': 'banana', 'c': 'cherry'}
-print_three_things(**mydict)
+my_dict = {'a': 'apple', 'b': 'banana', 'c': 'cherry'}
+print_three_things(**my_dict)
 ```
 
 Output:
@@ -300,4 +294,21 @@ Output:
 ```output
 a = aardvark, b = baboon, c = cat
 a = apple, b = banana, c = cherry
+```
+
+## Positional and keyword arguments (\*args, \*\*kwargs)
+
+```python
+def func(*args, **kwargs):
+    print(args)
+    print(kwargs)
+
+func(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, a=1, b=2, c=3)
+```
+
+Output:
+
+```bash
+(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+{'a': 1, 'b': 2, 'c': 3}
 ```

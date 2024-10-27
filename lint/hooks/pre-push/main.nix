@@ -7,5 +7,6 @@ makeScript {
     outputs."/lintGitCommitMsg"
     outputs."/formatYaml"
     outputs."/formatBash"
+    outputs."/lint/markdownlint"
   ];
 }

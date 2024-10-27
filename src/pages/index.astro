@@ -4,7 +4,7 @@ import PostPreview from "components/PostPreview.astro";
 import MyHero from "components/MyHero.astro";
 import { getEntry } from "astro:content";
 
-const postsNames = ["python", "react"];
+const postsNames = ["python-basics", "python-great-features"];
 const postsPromises = postsNames.map((post) => getEntry("posts", post));
 const posts = (await Promise.all(postsPromises)).filter(
   (post) => post !== undefined,
