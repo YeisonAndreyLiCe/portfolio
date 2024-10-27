@@ -20,7 +20,7 @@ export async function GET(context) {
       content: sanitizeHtml(parser.render(post.body), {
         allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
       }),
-      link: `${BASE_URL}/blog/${post.slug}/`,
+      link: `${BASE_URL}/posts/${post.slug}/`,
       ...post.data,
     })),
   });

@@ -1,22 +1,23 @@
 ---
 import type { IPostFrontmatter } from "content/config";
-import { Code } from "astro:components";
 
-type Props = Omit<IPostFrontmatter, "author" | "snippet" | "isDraft" | "title">;
+type Props = Omit<IPostFrontmatter, "author" | "snippet" | "isDraft" | "tags">;
 
 export type { Props };
 
-const { pubDate, readingTime, tags } = Astro.props;
-
-const code = `<publishDate>${new Date(pubDate).toDateString()}</publishDate>
-<readingTime>${readingTime}</readingTime>
-<tags>${tags}</tags>
-`;
+const { pubDate, readingTime, title } = Astro.props;
+const formattedDate = new Date(pubDate).toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
 ---
 
 <div>
+  <h1>{title}</h1>
   <slot />
-  <Code lang={"xml"} code={code} theme="tokyo-night" wrap={true} />
+  {formattedDate}
+  {readingTime}
 </div>
 <hr />
 
@@ -29,15 +30,11 @@ const code = `<publishDate>${new Date(pubDate).toDateString()}</publishDate>
 
   div {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: start;
     width: 100%;
     padding: 20px;
     gap: 20px;
-  }
-
-  pre {
-    border-radius: unset;
   }
 
   @media screen and (min-width: 720px) {
@@ -45,13 +42,14 @@ const code = `<publishDate>${new Date(pubDate).toDateString()}</publishDate>
       flex-direction: row;
       align-items: start;
       justify-content: space-between;
+      padding-left: unset;
+      padding-right: unset;
+      width: 100%;
     }
   }
 
   @media screen and (min-width: 1000px) {
     div {
-      justify-content: end;
-      padding: 20px 0px;
       max-width: var(--max-width);
     }
   }

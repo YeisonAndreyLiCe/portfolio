@@ -30,14 +30,14 @@ jobs:
         with:
           args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /lint/lint-format-nix"
 
-  lintMarkdown_all:
+  lintMarkdown:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@163217dfcd28294438ea1c1c149cfaf66eec283e
       - uses: docker://ghcr.io/fluidattacks/makes:24.09
-        name: /lintMarkdown/all
+        name: /lintMarkdown
         with:
-          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /lintMarkdown/all"
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /lint/markdownlint"
 
   lintGitCommitMsg:
     runs-on: ubuntu-latest

@@ -15,7 +15,7 @@ export interface Props {
 }
 
 const {
-  frontmatter: { title, description, pubDate, readingTime, tags },
+  frontmatter: { title, description, pubDate, readingTime },
   headings,
 } = Astro.props;
 ---
@@ -29,7 +29,7 @@ const {
       pubDate={pubDate}
       readingTime={readingTime}
       description={description}
-      tags={tags}
+      title={title}
     >
       <TableOfContent headings={headings} />
     </Hero>
