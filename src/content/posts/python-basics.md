@@ -9,9 +9,9 @@ tags: ["python"]
 layout: "../../layouts/Post.astro"
 snippet:
   language: "python"
-  code: "def outer():\n  x = 'loc
-  al'\n  def inner():\n     nonlocal  x\n     x =
-   'nonlocal'\n     print('inner:', x)\n  inner()\n  print('outer:', x)\n
+  code: "def outer():\n  x =
+  'local'\n  def inner():\n     nonlocal x\n     x =
+   'nonlocal'\n inner()\n
 
 if __name__ == '__main__':\n   outer()"
 ---
@@ -105,9 +105,7 @@ my_func()
 print(x)
 ```
 
-Output:
-
-```output
+```bash
 10
 10
 ```
@@ -123,9 +121,7 @@ my_func()
 print(x)
 ```
 
-Output:
-
-```output
+```bash
 10
 Traceback (most recent call last):
   File "scope.py", line 7, in <module>
@@ -150,9 +146,7 @@ def outer():
 outer()
 ```
 
-Output:
-
-```output
+```bash
 inner: nonlocal
 outer: nonlocal
 ```
@@ -174,9 +168,7 @@ my_func()
 print(x)
 ```
 
-Output:
-
-```output
+```bash
 20
 10
 ```
@@ -195,9 +187,7 @@ my_func()
 print(x)
 ```
 
-Output:
-
-```output
+```bash
 20
 20
 ```
@@ -251,9 +241,7 @@ def print_everything(*args):
 print_everything('apple', 'banana', 'cabbage')
 ```
 
-Output:
-
-```output
+```bash
 0. apple
 1. banana
 2. cabbage
@@ -269,9 +257,7 @@ def table_things(**kwargs):
 table_things(apple='fruit', cabbage='vegetable')
 ```
 
-Output:
-
-```output
+```bash
 apple = fruit
 cabbage = vegetable
 ```
@@ -289,9 +275,7 @@ my_dict = {'a': 'apple', 'b': 'banana', 'c': 'cherry'}
 print_three_things(**my_dict)
 ```
 
-Output:
-
-```output
+```bash
 a = aardvark, b = baboon, c = cat
 a = apple, b = banana, c = cherry
 ```
@@ -305,8 +289,6 @@ def func(*args, **kwargs):
 
 func(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, a=1, b=2, c=3)
 ```
-
-Output:
 
 ```bash
 (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)

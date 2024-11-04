@@ -2,7 +2,7 @@
   --primary: #1d2433;
   --secondary: #202125;
   --neutral: #6679a4;
-  --contrast: #ffcc66;
+  --contrast: #d23a3a;
   --text-color: #d7dce2;
   --text-color-low-contrast: #8695b7;
   --code-background: #2f3b54;
@@ -73,6 +73,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+blockquote {
+  margin: 0;
+  padding: 0;
+  border-left: 4px solid var(--contrast);
+  padding-left: 1rem;
+  color: var(--text-color-low-contrast);
 }
 
 @media screen and (min-width: 720px) {
