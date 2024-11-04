@@ -1,6 +1,6 @@
 ---
 title: Python Great Features
-pubDate: 2024-10-26
+pubDate: 2024-10-27
 description: "Python have great features that make it easy to use different
   programming paradigms.
   Let's explore some of the best features of Python."
@@ -58,10 +58,11 @@ class Dog(Animal):
 
 > The term protocols is used for some types supporting structural subtyping.
 >
-> > A structural type defines a set of values not by their **class**,
-> > but by their properties (e.g. attributes, methods, dictionary key/value types)
+> A structural type defines a set of values not by their **class**,
+> but by their properties (e.g. attributes, methods, dictionary key/value types)
 
-Protocols are a way to define a set of methods that a class must implement.
+Protocols are a way to define a set of methods that a class must implement in
+order to be considered an instance of that protocol.
 
 ```python
 from typing import Protocol

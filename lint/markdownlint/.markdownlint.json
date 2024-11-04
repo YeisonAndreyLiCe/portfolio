@@ -1,29 +1,29 @@
 {
   "MD001": true,
   "MD003": {
-    "style": "consistent",
+    "style": "consistent"
   },
   "MD004": {
-    "style": "consistent",
+    "style": "consistent"
   },
   "MD005": true,
   "MD007": {
     "indent": 4,
-    "start_indented": false,
+    "start_indented": false
   },
   "MD009": {
     "br_spaces": 2,
     "list_item_empty_lines": false,
-    "strict": false,
+    "strict": false
   },
   "MD010": {
     "code_blocks": true,
     "ignore_code_languages": [],
-    "spaces_per_tab": 2,
+    "spaces_per_tab": 2
   },
   "MD011": true,
   "MD012": {
-    "maximum": 1,
+    "maximum": 1
   },
   "MD013": {
     "line_length": 80,
@@ -32,7 +32,7 @@
     "tables": false,
     "headings": true,
     "strict": false,
-    "stern": false,
+    "stern": false
   },
   "MD014": true,
   "MD018": true,
@@ -41,40 +41,40 @@
   "MD021": true,
   "MD022": {
     "lines_above": 1,
-    "lines_below": 1,
+    "lines_below": 1
   },
   "MD023": true,
   "MD026": {
-    "punctuation": ".,;:",
+    "punctuation": ".,;:"
   },
   "MD027": true,
   "MD029": {
-    "style": "ordered",
+    "style": "ordered"
   },
   "MD030": {
     "ul_single": 1,
     "ol_single": 1,
     "ul_multi": 1,
-    "ol_multi": 1,
+    "ol_multi": 1
   },
   "MD031": {
-    "list_items": true,
+    "list_items": true
   },
   "MD032": true,
   "MD035": {
-    "style": "consistent",
+    "style": "consistent"
   },
   "MD036": {
-    "punctuation": ".,;:!?。，；：！？",
+    "punctuation": ".,;:!?。，；：！？"
   },
   "MD037": true,
   "MD038": true,
   "MD039": true,
   "MD040": {
     "allowed_languages": [],
-    "language_only": false,
+    "language_only": false
   },
   "MD046": {
-    "style": "consistent",
-  },
+    "style": "consistent"
+  }
 }
