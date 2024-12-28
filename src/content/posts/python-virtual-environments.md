@@ -2,7 +2,7 @@
 title: Python Virtual Environments
 pubDate: 2024-11-04
 description: "Python Virtual Environments"
-tags: ["python", "coding-style"]
+tags: ["python"]
 layout: "../../layouts/Post.astro"
 snippet:
   language: "docker"

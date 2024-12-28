@@ -22,22 +22,6 @@
   height: 100%;
 
   line-height: 1.5;
-
-  .astro-code {
-    overflow-x: unset !important;
-    padding: 20px;
-    border-radius: 4px;
-    background-color: var(--code-background) !important;
-  }
-
-  a {
-    color: var(--contrast);
-    text-decoration: none;
-  }
-
-  a:visited {
-    color: var(--contrast);
-  }
 }
 
 [data-theme="light"] {
@@ -81,6 +65,30 @@ blockquote {
   border-left: 4px solid var(--contrast);
   padding-left: 1rem;
   color: var(--text-color-low-contrast);
+}
+
+code {
+  background-color: var(--code-background);
+}
+
+.astro-code {
+  overflow-x: unset !important;
+  padding: 20px;
+  border-radius: 4px;
+  background-color: var(--code-background) !important;
+}
+
+a {
+  color: var(--contrast);
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--contrast);
+}
+
+ul {
+  margin-left: 10px;
 }
 
 @media screen and (min-width: 720px) {
