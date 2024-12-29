@@ -59,9 +59,11 @@ const { titles } = Astro.props;
 </script>
 
 <style>
+  header > a {
+    justify-self: start;
+  }
   header {
     display: flex;
-    background-color: var(--code-background);
     justify-content: space-between;
     align-items: center;
     padding: 20px;
@@ -109,7 +111,6 @@ const { titles } = Astro.props;
   .sidebar {
     position: fixed;
     backdrop-filter: blur(10px);
-    background-color: var(--code-background);
     opacity: 0.95;
     top: 0;
     right: 0;
@@ -161,12 +162,11 @@ const { titles } = Astro.props;
       width: 100%;
       display: grid;
       justify-items: center;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(5, 1fr);
     }
 
     nav {
-      grid-column: 2 / 3;
-      max-width: 930px;
+      grid-column: 2 / 5;
       padding: unset;
       position: relative;
       top: unset;
