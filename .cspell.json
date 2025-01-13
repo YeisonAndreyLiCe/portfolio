@@ -1,5 +1,5 @@
 {
-  "dictionaries": ["project-words"],
+  "dictionaries": ["project-words", "en", "fr"],
   "dictionaryDefinitions": [
     {
       "addWords": true,
@@ -7,7 +7,7 @@
       "path": "project-words.txt"
     }
   ],
-  "ignorePaths": ["node_modules"],
-  "language": "en",
+  "ignorePaths": ["node_modules", "dist"],
+  "language": "en,fr",
   "version": "0.2"
 }

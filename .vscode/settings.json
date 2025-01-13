@@ -4,11 +4,13 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": {
-    "editor.rulers": [80]
+    "editor.rulers": [80],
+    "diffEditor.ignoreTrimWhitespace": true
   },
   "[mdx]": {
     "editor.rulers": [80]
   },
+  "cSpell.language": "en,fr",
   "prettier.documentSelectors": ["**/*.astro"],
   "[astro]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
