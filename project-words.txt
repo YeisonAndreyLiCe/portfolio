@@ -29,12 +29,14 @@ figcaption
 focusring
 frontmatter
 functools
+PERMA
 getenv
 gnugrep
 gnused
 hlsearch
 Introducción
 keyof
+Kiyosaki
 kwargs
 LEGB
 Línea
