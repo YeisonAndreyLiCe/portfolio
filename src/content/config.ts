@@ -4,7 +4,7 @@ import { bundledLanguages, type BuiltinLanguage } from "shiki";
 
 const blogCollection = defineCollection({
   schema: z.object({
-    isDraft: z.boolean().default(true),
+    isDraft: z.boolean().default(false),
     title: z.string(),
     snippet: z.object({
       code: z.string(),

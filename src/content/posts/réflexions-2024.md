@@ -13,6 +13,12 @@ snippet:
 La solution la plus simple est généralement la meilleure. C’est pourquoi je
 cherche presque toujours à simplifier les choses.
 
+Cette post est résumé des idées exposé dans les livres héritage Leçons d'hommes
+puissants du Humberto Montesinos M. and Père riche, père pauvre de Robert.
+En plus, j'ai ajouté quelques réflexions personnelles. En suivant les droits
+d'auteur, je voudrais mentionner que la plus part de idées ne sont pas les
+miennes, mais celles des auteurs mentionnés.
+
 ## FOCUS
 
 Souvent, nous avons tendance de perdre le focus on se concentre sur la solution
@@ -112,3 +118,9 @@ ce n’est pas un problème, c’est un défi. Un défi doit être abordé une �
 
 > Vous êtes no seulement responsable de ce que vous fait, mais aussi de ce que
 > vous ne fait pas. - Lao-Tse
+
+## Amis des Processus
+
+Que est-ce que je dois me demander? Comment puis-je améliorer ce processus?.
+Oú est-ce que tu crois je suis en train de faire une erreur?.
+Avec quip pensez-vous que je devrais parler?.

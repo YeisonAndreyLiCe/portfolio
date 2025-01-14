@@ -8,6 +8,6 @@
     }
   ],
   "ignorePaths": ["node_modules", "dist"],
-  "language": "en,fr",
+  "language": "en,fr,es",
   "version": "0.2"
 }

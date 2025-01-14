@@ -30,6 +30,7 @@ function main {
     && popd \
     && info "Testing spelling" \
     && cspell-dict-fr-fr-link \
+    && cspell-dict-es-es-link \
     && if check "${@}"; then
       info "Spelling test passed"
     else
