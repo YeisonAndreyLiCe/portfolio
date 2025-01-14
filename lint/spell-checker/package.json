@@ -9,6 +9,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "cspell-dict-es-es": "1.1.2",
     "cspell-dict-fr-fr": "1.3.1"
   }
 }

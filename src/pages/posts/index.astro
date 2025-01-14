@@ -3,7 +3,9 @@ import Base from "layouts/Base.astro";
 import PostPreview from "components/PostPreview.astro";
 import { getCollection } from "astro:content";
 
-const allPosts = (await getCollection("posts")).sort((left, right) => {
+const allPosts = (
+  await getCollection("posts", (entry) => !entry.data.isDraft)
+).sort((left, right) => {
   return right?.data?.pubDate.valueOf() - left?.data?.pubDate.valueOf();
 });
 ---
