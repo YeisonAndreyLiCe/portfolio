@@ -1,11 +1,11 @@
 ---
 import "../styles/base.css";
-import Header from "components/Header.astro";
 import Footer from "components/Footer.astro";
 import Head from "components/Head.astro";
 import Hero from "components/Hero.astro";
 import TableOfContent from "components/TableOfContent.astro";
 import type { IPostFrontmatter } from "content/config";
+import Aside from "components/Aside.astro";
 
 export interface Props {
   file: string;
@@ -24,35 +24,53 @@ const {
 <html lang="en">
   <Head title={`${title} | post`} description={description} />
   <body>
-    <Header titles={["About", "Posts", "Contact"]} />
-    <Hero
-      pubDate={pubDate}
-      readingTime={readingTime}
-      description={description}
-      title={title}
-    >
-      <TableOfContent headings={headings} />
-    </Hero>
-    <section>
-      <slot />
-    </section>
+    <Aside titles={[]} />
+    <div id="main-content">
+      <Hero
+        pubDate={pubDate}
+        readingTime={readingTime}
+        description={description}
+        title={title}
+      >
+        <TableOfContent headings={headings} />
+      </Hero>
+      <section>
+        <slot />
+      </section>
+    </div>
     <Footer />
   </body>
 </html>
 
 <style>
-  section {
-    padding: 10px;
+  #main-content {
     display: flex;
     flex-direction: column;
+    align-self: center;
+    justify-self: center;
     gap: 10px;
   }
 
   @media screen and (min-width: 720px) {
-    section {
+    #main-content {
       gap: 16px;
       padding: 20px;
-      max-width: var(--max-width);
+      max-width: 720px;
+    }
+  }
+
+  @media screen and (min-width: 900px) {
+    #main-content {
+      margin-left: 150px;
+      margin-right: 50px;
+    }
+  }
+
+  @media screen and (min-width: 1300px) {
+    #main-content {
+      max-width: 1000px;
+      margin-right: 350px;
+      margin-left: 250px;
     }
   }
 </style>
