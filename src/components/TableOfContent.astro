@@ -14,7 +14,7 @@ const { headings } = Astro.props;
 
 <aside>
   <h4>Table of contents</h4>
-  <ul>
+  <ul id="article-content">
     {
       headings.map((heading) => (
         <li class={`h-${heading.depth}`}>
@@ -25,7 +25,30 @@ const { headings } = Astro.props;
   </ul>
 </aside>
 
+<script>
+  const updateActiveLink = () => {
+    const headings = document.getElementById("article-content");
+    if (headings !== null) {
+      const links = headings.querySelectorAll("a");
+      links.forEach((link) => {
+        if (window.location.hash === link.hash) {
+          link.parentElement?.classList.add("active");
+        } else {
+          link.parentElement?.classList.remove("active");
+        }
+      });
+    }
+  };
+
+  window.addEventListener("hashchange", updateActiveLink);
+  window.addEventListener("load", updateActiveLink);
+</script>
+
 <style>
+  li.active {
+    background-color: var(--contrast);
+  }
+
   ul {
     list-style-type: none;
     padding: 0;
@@ -92,14 +115,13 @@ const { headings } = Astro.props;
       position: fixed;
       backdrop-filter: blur(10px);
       padding: 20px;
-      left: 0px;
+      right: 0px;
       top: 85px;
-      max-width: 300px;
+      width: 300px;
       opacity: 0.95;
-      background-color: var(--code-background);
       border-radius: 4px;
       bottom: 75px;
-      overflow-y: scroll;
+      overflow-y: auto;
     }
 
     li {

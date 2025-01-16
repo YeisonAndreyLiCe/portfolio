@@ -1,6 +1,6 @@
 ---
 import "../styles/base.css";
-import Header from "components/Header.astro";
+import Aside from "components/Aside.astro";
 import Footer from "components/Footer.astro";
 import Head from "components/Head.astro";
 
@@ -16,21 +16,42 @@ const { title, description } = Astro.props;
 <html lang="en">
   <Head title={title} description={description} />
   <body>
-    <Header titles={["About", "Posts", "Contact"]} />
-    <section class="container">
-      <slot />
-    </section>
+    <Aside titles={[]} />
+    <div id="main-content">
+      <section>
+        <slot />
+      </section>
+    </div>
     <Footer />
   </body>
 </html>
 
 <style>
-  .container {
-    padding: 20px;
+  #main-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 16px;
-    max-width: 1000px;
+    align-self: center;
+    justify-self: center;
+  }
+
+  @media screen and (min-width: 720px) {
+    #main-content {
+      max-width: 720px;
+    }
+  }
+
+  @media screen and (min-width: 900px) {
+    #main-content {
+      margin-left: 150px;
+      margin-right: 50px;
+    }
+  }
+
+  @media (min-width: 1300px) {
+    #main-content {
+      max-width: 1000px;
+    }
   }
 </style>

@@ -13,11 +13,8 @@ blockquote
 builtins
 Checksumming
 clearfix
-Comandos
-Consolas
 cowsay
 currentcolor
-Curso
 cvzf
 datetime
 Dockering
@@ -91,6 +88,7 @@ uwsgi
 venv
 virtualenv
 virtualenvs
+hashchange
 whatis
 whereis
 withastro
