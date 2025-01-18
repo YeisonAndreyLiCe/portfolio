@@ -4,7 +4,7 @@
   --neutral: #092e39;
   --contrast: #1d7272;
   --text-color: #d7dce2;
-  --text-color-low-contrast: #8695b7;
+  --text-secondary-color: #b8c1d5;
   --code-background: #050605;
 
   --max-width: 720px;
@@ -60,8 +60,6 @@ body {
 }
 
 blockquote {
-  margin: 0;
-  padding: 0;
   border-left: 4px solid var(--contrast);
   padding-left: 1rem;
   color: var(--text-color-low-contrast);

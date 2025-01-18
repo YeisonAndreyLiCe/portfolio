@@ -22,7 +22,7 @@ const date = new Date(pubDate).toDateString();
 const postUrl = `${BASE_URL}posts/${title.toLowerCase().replace(/\s/g, "-")}/`;
 ---
 
-<div class="preview-container">
+<div id="preview-container">
   <div class="description-container">
     <div>
       <div>
@@ -41,22 +41,22 @@ const postUrl = `${BASE_URL}posts/${title.toLowerCase().replace(/\s/g, "-")}/`;
     <div class="tags-container">
       {
         tags.map((tag) => (
-          <button class="tag">
-            <a href={postUrl}>{tag[0].toUpperCase() + tag.slice(1)}</a>
-          </button>
+          <a href={postUrl}>
+            <button class="tag">{tag[0].toUpperCase() + tag.slice(1)}</button>
+          </a>
         ))
       }
-      <button class="tag">
-        <a href={postUrl}>Read Post</a>
-      </button>
+      <a href={postUrl}>
+        <button class="tag"> Read Post </button>
+      </a>
     </div>
   </div>
   <div class="container-like-image">
-    <button class="code-tag">
-      <a href={postUrl}>
+    <a href={postUrl}>
+      <button class="code-tag">
         {snippet.language[0].toUpperCase() + snippet.language.slice(1)}
-      </a>
-    </button>
+      </button>
+    </a>
     <Code
       code={snippet.code}
       lang={snippet.language}
@@ -67,9 +67,17 @@ const postUrl = `${BASE_URL}posts/${title.toLowerCase().replace(/\s/g, "-")}/`;
 </div>
 
 <style>
+  button {
+    cursor: pointer;
+  }
   p {
     white-space: break-spaces;
   }
+
+  #preview-container {
+    margin-top: 40px;
+  }
+
   .description-container {
     background-color: var(--secondary);
     padding: 8px;
@@ -166,7 +174,7 @@ const postUrl = `${BASE_URL}posts/${title.toLowerCase().replace(/\s/g, "-")}/`;
       border-radius: 8px;
     }
 
-    .preview-container {
+    #preview-container {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       margin-top: 24px;
@@ -175,24 +183,24 @@ const postUrl = `${BASE_URL}posts/${title.toLowerCase().replace(/\s/g, "-")}/`;
       align-items: center;
     }
 
-    .preview-container:nth-child(even) .description-container {
+    #preview-container:nth-child(even) .description-container {
       grid-column: 1 / 7;
       z-index: 2;
       margin-right: -100px;
       opacity: 0.9;
       grid-row: 1 / 2;
     }
-    .preview-container:nth-child(even) .container-like-image {
+    #preview-container:nth-child(even) .container-like-image {
       align-items: start;
       grid-column: 7 / 13;
       z-index: 1;
     }
 
-    .preview-container:nth-child(odd) .container-like-image {
+    #preview-container:nth-child(odd) .container-like-image {
       grid-column: 1 / 7;
       z-index: 1;
     }
-    .preview-container:nth-child(odd) .description-container {
+    #preview-container:nth-child(odd) .description-container {
       grid-column: 7 / 13;
       z-index: 2;
       margin-left: -100px;
