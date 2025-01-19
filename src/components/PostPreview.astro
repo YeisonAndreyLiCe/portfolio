@@ -22,7 +22,7 @@ const date = new Date(pubDate).toDateString();
 const postUrl = `${BASE_URL}posts/${title.toLowerCase().replace(/\s/g, "-")}/`;
 ---
 
-<div id="preview-container">
+<div class="preview-container">
   <div class="description-container">
     <div>
       <div>
@@ -67,23 +67,28 @@ const postUrl = `${BASE_URL}posts/${title.toLowerCase().replace(/\s/g, "-")}/`;
 </div>
 
 <style>
-  button {
-    cursor: pointer;
-  }
   p {
     white-space: break-spaces;
   }
 
-  #preview-container {
+  .preview-container {
     margin-top: 40px;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
   }
 
   .description-container {
-    background-color: var(--secondary);
-    padding: 8px;
+    grid-column: 1 / -1;
+    padding: 40px 40px 30px;
+    text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    z-index: 2;
+    background-color: transparent;
+    opacity: 0.95;
   }
 
   .description-container > div > div {
@@ -113,6 +118,7 @@ const postUrl = `${BASE_URL}posts/${title.toLowerCase().replace(/\s/g, "-")}/`;
 
   .code-tag {
     background-color: var(--code-background);
+    color: var(--text-color);
     padding: 8px;
     border: none;
   }
@@ -122,17 +128,20 @@ const postUrl = `${BASE_URL}posts/${title.toLowerCase().replace(/\s/g, "-")}/`;
     display: flex;
     flex-direction: column;
     gap: 8px;
+    width: 100%;
   }
 
   .tag {
     background-color: var(--text-color);
+    color: var(--primary);
     padding: 8px;
     border-radius: 4px;
     border: none;
+    width: 100%;
   }
 
-  .tag a {
-    color: var(--primary);
+  .tag button {
+    color: var(--text-color);
     text-decoration: none;
   }
 
@@ -140,41 +149,62 @@ const postUrl = `${BASE_URL}posts/${title.toLowerCase().replace(/\s/g, "-")}/`;
     background-color: var(--contrast);
   }
 
-  .container-like-image {
-    box-shadow: 0 0 10px var(--neutral);
-  }
-
   .description-container:hover {
     box-shadow: 0 0 10px var(--contrast);
   }
 
   .container-like-image {
+    position: absolute;
+    grid-column: 1 / -1;
+    height: 100%;
+    opacity: 0.25;
     display: flex-inline;
     flex-direction: column;
     justify-content: space-between;
     padding: 8px;
-    background-color: var(--neutral);
 
-    a {
-      color: var(--text-color);
+    button {
       text-decoration: none;
+      cursor: pointer;
     }
 
-    a:hover {
+    a:hover,
+    button:hover {
       text-decoration: underline;
       color: var(--contrast);
       transition: color 0.3s;
     }
   }
 
-  @media (min-width: 992px) {
+  @media (min-width: 720px) {
+    .tags-container {
+      flex-direction: row;
+      gap: 8px;
+      align-items: space-between;
+      justify-items: space-between;
+    }
     .container-like-image,
     .description-container {
       padding: 16px;
       border-radius: 8px;
+      position: relative;
+      height: fit-content;
     }
 
-    #preview-container {
+    .description-container {
+      background-color: var(--code-background);
+      border-bottom-left-radius: unset;
+      border-bottom-right-radius: unset;
+    }
+
+    .container-like-image {
+      background-color: var(--neutral);
+      opacity: unset;
+      border-top-left-radius: unset;
+      border-top-right-radius: unset;
+    }
+
+    .preview-container {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       margin-top: 24px;
@@ -182,25 +212,32 @@ const postUrl = `${BASE_URL}posts/${title.toLowerCase().replace(/\s/g, "-")}/`;
       align-content: center;
       align-items: center;
     }
+  }
 
-    #preview-container:nth-child(even) .description-container {
+  @media (min-width: 992px) {
+    .description-container,
+    .container-like-image {
+      border-radius: 4px;
+    }
+
+    .preview-container:nth-child(even) .description-container {
       grid-column: 1 / 7;
       z-index: 2;
       margin-right: -100px;
       opacity: 0.9;
       grid-row: 1 / 2;
     }
-    #preview-container:nth-child(even) .container-like-image {
+    .preview-container:nth-child(even) .container-like-image {
       align-items: start;
       grid-column: 7 / 13;
       z-index: 1;
     }
 
-    #preview-container:nth-child(odd) .container-like-image {
+    .preview-container:nth-child(odd) .container-like-image {
       grid-column: 1 / 7;
       z-index: 1;
     }
-    #preview-container:nth-child(odd) .description-container {
+    .preview-container:nth-child(odd) .description-container {
       grid-column: 7 / 13;
       z-index: 2;
       margin-left: -100px;
