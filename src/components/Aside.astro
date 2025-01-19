@@ -144,7 +144,7 @@ const { titles } = Astro.props;
     right: 0;
     height: 100%;
     width: 250px;
-    z-index: 1;
+    z-index: 3;
     box-shadow: -10px 0px 10px rgba(0, 0, 0, 0.1);
   }
 
@@ -164,14 +164,21 @@ const { titles } = Astro.props;
 
   #mobile-buttons {
     color: var(--text-color);
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    z-index: 2;
+    backdrop-filter: blur(10px);
+    opacity: 0.95;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    display: flex;
+    justify-content: end;
+    z-index: 4;
   }
 
   #mobile-buttons button {
-    background-color: var(--primary);
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    opacity: 0.95;
     color: var(--text-color);
     padding: 4px;
     border: none;
