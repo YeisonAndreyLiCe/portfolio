@@ -42,6 +42,43 @@ const {
   </body>
 </html>
 
+<script>
+  // JavaScript to highlight the active link in the table of contents
+  document.addEventListener("DOMContentLoaded", () => {
+    if (window.innerWidth < 1300) return;
+
+    const headings = ["h1", "h2", "h3", "h4", "h5", "h6"];
+    const titles = headings
+      .map((heading) => Array.from(document.querySelectorAll(heading)))
+      .flat();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          console.log("Mobile device detected");
+
+          const link = document.querySelector(
+            `#article-content a[href="#${entry.target.id}"]`,
+          );
+          if (!link?.parentElement) return;
+          if (entry.isIntersecting) {
+            link.parentElement.classList.add("active");
+          } else {
+            link.parentElement.classList.remove("active");
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.5,
+      },
+    );
+
+    titles.forEach((title) => observer.observe(title));
+  });
+</script>
+
 <style>
   #main-content {
     display: flex;
@@ -61,7 +98,6 @@ const {
     #main-content {
       gap: 16px;
       padding: 20px;
-      max-width: 720px;
     }
   }
 

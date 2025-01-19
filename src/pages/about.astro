@@ -4,8 +4,18 @@ import BaseLayout from "layouts/Base.astro";
 
 <BaseLayout title="About | Yeison Liscano" description="About Yeison Liscano">
   <h1>About Me</h1>
+  <section>
+    <p>
+      I’m passionate about building innovative web applications and solving
+      complex problems through technology. With expertise in full-stack
+      development , I work with modern technologies like React, Node.js, Python,
+      GraphQL, and AWS, delivering robust, scalable solutions. As a dedicated
+      software engineer, I’m also an avid writer, sharing insights on web
+      development, programming, data science, and the latest in technology.
+    </p>
+  </section>
   <main>
-    <section>
+    <section class="tow-cols">
       <h2 class="section-title">Background</h2>
       <div class="content">
         <p>
@@ -17,7 +27,7 @@ import BaseLayout from "layouts/Base.astro";
           Before diving into programming, I began my academic journey at the
           National University of Colombia. In 2021 I made decision to leave
           university and fully commit to a career as a developer. After having
-          worked in software development for 1 years, I started a <strong
+          worked in software development for 1 year, I started a <strong
             >computer science</strong
           >
           degree at the same university. Thanks to my previous studies, I was able
@@ -30,7 +40,7 @@ import BaseLayout from "layouts/Base.astro";
         </p>
       </div>
     </section>
-    <section>
+    <section class="tow-cols">
       <h2 class="section-title">Education</h2>
       <div class="content">
         <p><strong>Computer Science - 2024-Present</strong></p>
@@ -41,7 +51,7 @@ import BaseLayout from "layouts/Base.astro";
         <p>Coding Dojo - Virtually</p>
       </div>
     </section>
-    <section>
+    <section class="tow-cols">
       <h2 class="section-title">Skills</h2>
       <div class="content">
         <p>
@@ -67,9 +77,11 @@ import BaseLayout from "layouts/Base.astro";
 
   @media screen and (min-width: 768px) {
     section {
+      margin-bottom: 30px;
+    }
+    .tow-cols {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      margin-bottom: 30px;
     }
 
     .section-title {
