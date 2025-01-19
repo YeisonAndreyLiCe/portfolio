@@ -23,6 +23,7 @@ fastcgi
 fetchzip
 fieldset
 figcaption
+fluidattacks
 focusring
 frontmatter
 functools
