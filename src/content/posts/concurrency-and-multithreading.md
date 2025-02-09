@@ -24,9 +24,14 @@ snippet:
     return await response.text()\n"
 ---
 
-Concurrency and multithreading enable developers to write efficient, scalable,
-and responsive applications by leveraging the power of multiple cores in modern
-computing architectures.
+Concurrency is the ability of a system or program to execute multiple tasks or
+processes simultaneously or overlappingly, without necessarily executing them at
+the same time. Concurrency allows for better utilization of resources and can
+improve the overall performance of a system or program. In a concurrent system,
+tasks or processes may appear to be executing simultaneously, even if they are
+actually being interleaved or executed in parallel by multiple threads,
+processes, or coroutines. The main goal of concurrency is to improve the
+responsiveness, throughput, and scalability of a system or program.
 
 ## What is Concurrency?
 
