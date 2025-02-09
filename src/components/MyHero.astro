@@ -89,5 +89,15 @@ const { BASE_URL } = import.meta.env;
 
   section div {
     margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 720px) {
+    section div {
+      flex-direction: row;
+    }
   }
 </style>
