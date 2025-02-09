@@ -21,9 +21,25 @@ projects. This means that each project can have its own dependencies,
 regardless of what dependencies every other project has.
 First of all let's review how to install, update, and uninstall packages
 in a virtual environment with pip.
-Note: The command specified below are for linux (ubuntu).
+Note: The command specified below are for linux (ubuntu) and MAC OS.
 
-## Installing packages
+> Contains a specific Python interpreter and software libraries and
+> binaries which are needed to support a project (library or application).
+> These are by default isolated from software in other virtual environments
+> and Python interpreters and libraries installed in the operating system.
+> [Python docs](https://docs.python.org/3/library/venv.html)
+
+## Freezing packages (PIP)
+
+To freeze the packages installed in the virtual environment, you can use the
+`freeze` command. This will create a `requirements.txt` file with all the
+packages installed in the virtual environment and their respective versions
+
+```bash
+pip3 freeze > requirements.txt
+```
+
+## Installing packages (PIP)
 
 ```bash
 pip3 install {package_name}
@@ -42,18 +58,32 @@ pip3 uninstall {package_name}
 pip3 install --upgrade {package_name}
 ```
 
-## Freezing packages
-
-```bash
-pip3 freeze > requirements.txt
-```
-
 ## Creating a virtual environment
 
-To create a virtual environment, you must use the `venv` module that
-comes with Python.
+To create a virtual environment, you could use the `venv` module that
+comes with Python, this is the recommended way to create virtual environments.
 
 ### venv (built-in module in python 3.3+)
+
+Extracted from [python venv docs](https://docs.python.org/3/library/venv.html)
+A virtual environment is (amongst other things):
+
+Used to contain a specific Python interpreter and software libraries and
+binaries which are needed to support a project (library or application). These
+are by default isolated from software in other virtual environments and Python
+interpreters and libraries installed in the operating system.
+
+Contained in a directory, conventionally named .venv or venv in the project
+directory, or under a container directory for lots of virtual environments,
+such as ~/.virtualenvs.
+
+Not checked into source control systems such as Git.
+
+Considered as disposable – it should be simple to delete and recreate it from
+scratch. You don’t place any project code in the environment.
+
+Not considered as movable or copyable – you just recreate the same environment
+in the target location.
 
 ```bash
 # Run the venv module as a script with the -m option, passing the route
@@ -65,22 +95,27 @@ pip3 freeze > requirements.txt
 deactivate
 ```
 
-### virtualenv (Python library)
+### pipenv
 
-```bash
-pip3 install virtualenv
-virtualenv --no-site-packages {env_name}
-# specify the python version, note that the python version must be installed
-# in the system.
-virtualenv --python=/usr/bin/python2.7 {env_name}
-lsvirtualenv # list all the virtual environments
-source {env_name}/bin/activate
-pip3 install -r requirements.txt # All other pip commands work as usual
-deactivate
-rm -rf {env_name} # remove the virtual environment
-```
+Extracted from [pipenv docs](https://pipenv.pypa.io/en/latest/) The problems
+that Pipenv seeks to solve are multi-faceted:
 
-### pipenv (Recommended)
+- You no longer need to use pip and virtualenv separately: they work together.
+
+- Managing a requirements.txt file with package hashes can be problematic.
+  Pipenv uses Pipfile and Pipfile.lock to separate abstract dependency
+  declarations from the last tested combination.
+
+- Hashes are documented in the lock file which are verified during install.
+  Security considerations are put first.
+
+- Strongly encourage the use of the latest versions of dependencies to minimize
+  security risks arising from outdated components.
+
+- Gives you insight into your dependency graph (e.g. $ pipenv graph).
+
+- Streamline development workflow by supporting local customizations with
+  .env files.
 
 ```bash
 pip3 install pipenv
@@ -88,6 +123,8 @@ cd {project_dir}
 pipenv install -r requirements.txt
 pipenv uninstall {package_name}
 pipenv install -e git+repo_url@branch#egg=package_name
+# Run a script using pipenv run
+pipenv run python main.py
 # install a package from a git repo
 pipenv shell
 pipenv lock # creates a Pipfile.lock file
@@ -102,6 +139,35 @@ pipenv graph # shows the dependency graph
 pipenv check # checks for security vulnerabilities
 exit
 ```
+
+### virtualenv (Lower level)
+
+> virtualenv can help you. It creates an environment that has its own
+> installation directories, that doesn’t share libraries with other virtualenv
+> environments (and optionally doesn’t access the globally installed libraries
+> either). [virtualenv docs](https://virtualenv.pypa.io/en/latest/)
+
+```bash
+# basic usage
+pip3 install virtualenv
+cd project_folder
+virtualenv venv
+source venv/bin/activate
+pip install requests
+deactivate
+
+# specify the python version, note that the python version must be installed
+# in the system.
+virtualenv --python=/usr/bin/python2.7 {env_name}
+lsvirtualenv # list all the virtual environments
+source {env_name}/bin/activate
+pip install -r requirements.txt # All other pip commands work as usual
+deactivate
+rm -rf {env_name} # remove the virtual environment
+```
+
+To delete a virtual environment, just delete its folder.
+(In this case, it would be rm -rf venv.)
 
 ## Isolating the versions of Python
 
