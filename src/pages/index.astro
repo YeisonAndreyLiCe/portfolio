@@ -1,39 +1,10 @@
 ---
 import Base from "../layouts/Base.astro";
-import PostPreview from "components/PostPreview.astro";
 import MyHero from "components/MyHero.astro";
-import { getEntry } from "astro:content";
-
-const postsNames = [
-  "python-virtual-environments",
-  "python-great-features",
-  "réflexions-2024",
-];
-const postsPromises = postsNames.map((post) => getEntry("posts", post));
-const posts = (await Promise.all(postsPromises)).filter(
-  (post) => post !== undefined,
-);
 ---
 
 <Base title="Yeison Liscano" description="Blog posts about web development">
   <MyHero />
-  <h2>Posts</h2>
-  <hr />
-  <section class="posts-preview">
-    {
-      posts.map((post) => (
-        <PostPreview
-          title={post.data.title}
-          pubDate={post.data.pubDate}
-          description={post.data.description}
-          tags={post.data.tags}
-          slug={post.slug}
-          readingTime={post.data.readingTime}
-          snippet={post.data.snippet}
-        />
-      ))
-    }
-  </section>
 </Base>
 
 <style>

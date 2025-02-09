@@ -1,24 +1,28 @@
 :root {
   --primary: #050605;
-  --secondary: #0c0e16;
-  --neutral: #092e39;
-  --contrast: #1d7272;
+  --secondary: #171c28;
+  --neutral: #8695b7;
+  --contrast: #ef6b73;
   --text-color: #d7dce2;
   --text-secondary-color: #b8c1d5;
-  --code-background: #141314;
+  --code-background: #1d2433;
 
   --max-width: 720px;
 
   color: var(--text-color);
   background-color: var(--primary);
   font-family:
-    ui-monospace,
+    __Spline_Sans_Mono_ca083e,
+    __Spline_Sans_Mono_Fallback_ca083e,
     SFMono-Regular,
-    SF Mono,
     Menlo,
     Consolas,
+    Monaco,
     Liberation Mono,
-    monospace;
+    Courier New,
+    monospace,
+    ui-monospace,
+    SF Mono;
   height: 100%;
 
   line-height: 1.5;
@@ -26,11 +30,11 @@
 
 [data-theme="light"] {
   --primary: #ffffff;
-  --secondary: #ccd2d9;
+  --secondary: #171c28;
   --neutral: #dce0e8;
   --contrast: #af63f7;
   --text-color: #000000;
-  --code-background: #eff1f5;
+  --code-background: #1d2433;
 }
 
 @media (prefers-color-scheme: light) {
