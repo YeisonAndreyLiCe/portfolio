@@ -28,6 +28,7 @@ focusring
 linux
 pipfile
 wsgi
+overlappingly
 frontmatter
 functools
 PERMA
