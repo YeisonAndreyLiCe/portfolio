@@ -41,9 +41,17 @@ Participantes: Prestadores/acreedores y prestatarios/deudores.
 
 El crédito es un motor de crecimiento a corto plazo.
 
-## Tasa de interés
+## [Tasa de interés](https://www.cmfchile.cl/educa/621/w3-article-27164.html)
 
 Puede expresar la rentabilidad de un activo financiero o el costo de un crédito.
+
+Para que la economía se sostenga la inflación debe moverse dentro del rango
+establecido por el banco central. Pues se debe mantener el IPC dentro de un
+rango establecido. Si la inflación llega a un nivel muy alto, el banco central
+aumenta la tasa de interés para reducir la cantidad de dinero en circulación y
+disminuir la demanda. Si la inflación es muy baja, el banco central disminuye
+la tasa de interés para aumentar la cantidad de dinero en circulación y
+estimular la demanda.
 
 capital + interés = crédito
 
