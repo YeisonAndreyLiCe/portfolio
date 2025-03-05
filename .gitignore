@@ -26,3 +26,4 @@ pnpm-debug.log*
 coverage/
 src/content/posts/artificial-vision.md
 src/content/posts/steps-by-step.md
+public/el_problema_de_los_puentes.png
