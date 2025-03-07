@@ -46,5 +46,6 @@ adquisitivo de los consumidores.
 
 - Incremento de la demanda.
 - Aumento de los costos de producción.
-- La inflación auto-generada (efecto Pigmalión). Preparación para a crisis causa la crisis.
+- La inflación auto-generada (efecto Pigmalión). Preparación para a crisis
+  causa la crisis.
 - Aumento de la cantidad de dinero en circulación. Perdida de valor del dinero.
