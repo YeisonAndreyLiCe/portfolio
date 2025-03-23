@@ -5,7 +5,6 @@ description:
   "En este post, exploraremos los indicadores económicos más importantes.
   Desde el PIB, la inflación, el desempleo, y más. ¡Vamos a sumergirnos!"
 tags: ["economía"]
-layout: "../../layouts/Post.astro"
 isDraft: true
 snippet:
   language: "markdown"

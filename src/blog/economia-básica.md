@@ -1,15 +1,12 @@
 ---
 title: Economía Básica
-pubDate: 2025-01-13
-description: "En este post, exploraremos los conceptos básicos de la economía.
-  Desde la oferta y la demanda, la competencia perfecta, los monopolios, y más.
-  ¡Vamos a sumergirnos!"
+pubDate: 2024-11-04
+description: "Economía Básica"
 tags: ["economía"]
-layout: "../../layouts/Post.astro"
 isDraft: true
 snippet:
-  language: "markdown"
-  code: "Time value of money"
+  language: "python"
+  code: "def calculate_roi(investment: float, returns: float) -> float:\n    return (returns - investment) / investment * 100"
 ---
 
 Palabras claves: economía, oferta, demanda, competencia perfecta, monopolio,

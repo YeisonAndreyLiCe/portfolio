@@ -1,0 +1,28 @@
+---
+import Base from "layouts/Base.astro";
+import PostPreview from "components/PostPreview.astro";
+
+import { getCollection } from "astro:content";
+
+const allPosts = (
+  await getCollection("blog", ({ data }) => !data.isDraft)
+).sort((left, right) => {
+  return right.data.pubDate.valueOf() - left.data.pubDate.valueOf();
+});
+---
+
+<Base title="Blog | Yeison Liscano" description="Yeison Liscano Blog">
+  {
+    allPosts.map(({ data, id }) => (
+      <PostPreview
+        title={data.title}
+        pubDate={data.pubDate}
+        description={data.description}
+        tags={data.tags}
+        slug={id}
+        readingTime={data?.readingTime}
+        snippet={data.snippet}
+      />
+    ))
+  }
+</Base>

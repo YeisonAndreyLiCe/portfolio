@@ -17,7 +17,6 @@
     "**/*.js",
     "**/*.mjs",
     "**/*.astro",
-    "**/*.mdx",
     "**/*.md",
     "./.lint-git-commit-msg/*.js"
   ],

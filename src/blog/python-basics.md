@@ -6,7 +6,6 @@ description: "Python is a great language for beginners and experts alike.
     From modules, packages, scope, and more.
     Let's dive in!"
 tags: ["python"]
-layout: "../../layouts/Post.astro"
 snippet:
   language: "python"
   code: "def outer():\n  x =
@@ -29,7 +28,7 @@ can use them to your advantage.
 
 A module is a file containing Python definitions and statements.
 The file name is the module name with the suffix `.py` appended.
-Within a module, the module’s name (as a string) is available as the value of
+Within a module, the module's name (as a string) is available as the value of
 the global variable `__name__`.
 
 A module can be imported by another program to make use of its functionality.

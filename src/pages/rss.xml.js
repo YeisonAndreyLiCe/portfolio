@@ -10,17 +10,17 @@ const BASE_URL = import.meta.env.BASE_URL;
  * @param {{ site: any; }} context
  */
 export async function GET(context) {
-  const blog = await getCollection("posts");
+  const blog = await getCollection("blog", ({ data }) => !data.isDraft);
 
   return rss({
     title: "Yeison Liscano Portfolio",
     description: "About Yeison Liscano and his work and life",
     site: context.site,
     items: blog.map((post) => ({
-      content: sanitizeHtml(parser.render(post.body), {
+      content: sanitizeHtml(parser.render(post.body ?? ""), {
         allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
       }),
-      link: `${BASE_URL}/posts/${post.slug}/`,
+      link: `${BASE_URL}/blog/${post.id}/`,
       ...post.data,
     })),
   });

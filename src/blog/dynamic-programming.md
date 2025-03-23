@@ -6,7 +6,6 @@ description:
   overlapping sub-problems, optimal substructure, and memoization to bottom-up and
   top-down approaches. Let's dive in!"
 tags: ["programming", "dynamic programming"]
-layout: "../../layouts/Post.astro"
 isDraft: true
 snippet:
   language: "python"

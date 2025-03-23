@@ -1,15 +1,12 @@
 ---
-title: Funcional Programming
-pubDate: 2025-01-13
-description:
-  "In this post, we will explore the basic concepts of functional programming.
-  From pure functions, immutability, higher-order functions, and more. Let's dive in!"
-tags: ["programming", "functional programming"]
-layout: "../../layouts/Post.astro"
+title: Functional Programming
+pubDate: 2024-11-04
+description: "Functional Programming"
+tags: ["programming"]
 isDraft: true
 snippet:
   language: "python"
-  code: "Functional Programming"
+  code: "def map_reduce(data: list) -> int:\n    return reduce(lambda x, y: x + y, map(lambda x: x * 2, data))"
 ---
 
 Let's start by recalling what functional programming (FP) is all about. It's a

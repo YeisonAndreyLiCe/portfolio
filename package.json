@@ -15,20 +15,21 @@
     "cy:eslint::fix": "eslint 'e2e/specs/*.ts' --config e2e/eslint.config.js --fix",
     "format:check": "prettier --check .",
     "format::write": "prettier --write .",
+    "format:markdown": "prettier --write 'src/blog/*.md'",
     "test": "vitest --config vitest.config.js --watch=false --coverage",
     "cy:run:chrome": "cypress run --browser chrome",
     "cy:run:firefox": "cypress run --browser firefox"
   },
   "dependencies": {
     "@astrojs/check": "0.9.4",
-    "@astrojs/mdx": "3.1.7",
     "@astrojs/rss": "4.0.8",
     "@astrojs/sitemap": "3.2.0",
-    "astro": "^4.16.18",
+    "astro": "5.5.4",
     "markdown-it": "14.1.0",
     "rehype-external-links": "^3.0.0",
     "remark-toc": "^9.0.0",
-    "sanitize-html": "2.13.1"
+    "sanitize-html": "2.13.1",
+    "shiki": "^3.2.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.20.0",

@@ -4,13 +4,12 @@ pubDate: 2025-01-09
 description: "Un résumé des livres que j'ai lus et des choses que j'ai apprises
 en 2024."
 tags: ["reading", "learning"]
-layout: "../../layouts/Post.astro"
 snippet:
   language: "markdown"
   code: "> La simplicité est la sophistication ultime. - Leonardo da Vinci\n"
 ---
 
-La solution la plus simple est généralement la meilleure. C’est pourquoi je
+La solution la plus simple est généralement la meilleure. C'est pourquoi je
 cherche presque toujours à simplifier les choses.
 
 Cette post est résumé des idées exposé dans les livres héritage Leçons d'hommes
@@ -36,9 +35,9 @@ vous.
 
 > Des opportunités augmentent à mesure qu'elles sont saisies. - Sun Tzu
 
-Le peur d'agir ce qui nous empêche de réaliser nos rêves. C’est important de
-réfléchir, mais le plus important c’est d’agir. L'action est la clé du succès.
-Prend des risques c'est partie de la vie. L’impossible met seulement un peu
+Le peur d'agir ce qui nous empêche de réaliser nos rêves. C'est important de
+réfléchir, mais le plus important c'est d'agir. L'action est la clé du succès.
+Prend des risques c'est partie de la vie. L'impossible met seulement un peu
 plus de temps à arriver, autant vous insistez pour essayer et essayer.
 
 > Admirez ceux qui essaient, même s'ils échouent. - Seneca
@@ -49,7 +48,7 @@ plus de temps à arriver, autant vous insistez pour essayer et essayer.
 
 <!--  -->
 
-> Impossible est un mot que l’on ne trouve que dans le dictionnaire des
+> Impossible est un mot que l'on ne trouve que dans le dictionnaire des
 > imbéciles. - Napoléon Bonaparte
 
 Je veux mettre l'accent sur l'importance d'agir consciencieusement.
@@ -60,7 +59,7 @@ Je veux mettre l'accent sur l'importance d'agir consciencieusement.
 <!--  -->
 
 > Certainement, les plans de ceux qui sont diligents auront de bons résultats;
-> D’un autre côté, tous ceux qui se précipitent finiront dans la
+> D'un autre côté, tous ceux qui se précipitent finiront dans la
 > pauvreté - Rey Salomon
 
 Reconnaître les limites de votre connaissance est la première étape pour
@@ -80,7 +79,7 @@ apprendre.
 
 <!--  -->
 
-> Il m’a fallu 10 ans pour avoir un succès du jour au lendemain - Woody Allen
+> Il m'a fallu 10 ans pour avoir un succès du jour au lendemain - Woody Allen
 
 Se fixer des objectifs est une partie importante de la vie. Soyez ambitieux!.
 être ambitieux est une qualité qui vous permettra de réaliser vos rêves. Il ne
@@ -89,7 +88,7 @@ objectifs et concentrez-vous sur eux.
 
 <!--  -->
 
-> Trouve une raison qui soi plus grande que la réalité. Payez-vous d’abord.
+> Trouve une raison qui soi plus grande que la réalité. Payez-vous d'abord.
 > Robert Kiyosaki, Père riche, père pauvre
 
 Une raison ou un but est ce qui vous pousse à agir. Rappelle toi toujours
@@ -102,11 +101,11 @@ désirs et no désirs de l'individu.
 ## Avoir de gros problèmes
 
 Considérer des questions triviales et ridicules comme problématiques témoigne
-d’une mentalité très limitée. Ce qui détermine si c’est bon ou mauvais, c’est
+d'une mentalité très limitée. Ce qui détermine si c'est bon ou mauvais, c'est
 votre interprétation.
 
-À retenir : les problèmes sont des opportunités. Qu’est-ce que je dis problèmes,
-ce n’est pas un problème, c’est un défi. Un défi doit être abordé une étape
+À retenir : les problèmes sont des opportunités. Qu'est-ce que je dis problèmes,
+ce n'est pas un problème, c'est un défi. Un défi doit être abordé une étape
 à la fois.
 
 ## Être un homme de parole
