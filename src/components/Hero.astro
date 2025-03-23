@@ -1,7 +1,10 @@
 ---
-import type { IPostFrontmatter } from "content/config";
+import type { CollectionEntry } from "astro:content";
 
-type Props = Omit<IPostFrontmatter, "author" | "snippet" | "isDraft" | "tags">;
+type Props = Omit<
+  CollectionEntry<"blog">["data"],
+  "author" | "snippet" | "isDraft" | "tags"
+>;
 
 export type { Props };
 

@@ -1,21 +1,8 @@
 ---
 title: Concurrency and Multithreading
-pubDate: 2025-02-04
-description:
-  "In today’s fast-paced world of software development, concurrency and
-  multithreading are essential concepts that every developer should understand.
-  These concepts enable developers to write efficient, scalable, and responsive
-  applications by leveraging the power of multiple cores in modern computing architectures."
-tags:
-  [
-    concurrency,
-    multithreading,
-    programming,
-    software development,
-    JavaScript,
-    Python,
-  ]
-layout: "../../layouts/Post.astro"
+pubDate: 2024-11-04
+description: "Concurrency and Multithreading"
+tags: ["programming"]
 snippet:
   language: "python"
   code: "async def fetch(url: str) -> str:\n
@@ -36,7 +23,7 @@ responsiveness, throughput, and scalability of a system or program.
 ## What is Concurrency?
 
 Concurrency refers to the ability of a computer system to handle multiple tasks
-or requests simultaneously. In simpler terms, it’s about making sure that your
+or requests simultaneously. In simpler terms, it's about making sure that your
 code can perform multiple operations at once, rather than waiting for one task
 to complete before starting another.
 
@@ -52,7 +39,7 @@ memory space and can interact with each other more efficiently.
 1. **Efficiency**: Concurrency helps applications handle multiple requests at
    the same time, making it faster and more responsive.
 
-2. **Scalability**: As your application grows, you’ll need to handle increasing
+2. **Scalability**: As your application grows, you'll need to handle increasing
    amounts of data and tasks. Concurrency allows you to distribute work across
    multiple cores, making your application more scalable.
 
@@ -94,7 +81,7 @@ multithreading allows you to **overlap** them with other tasks.
 
 ### 1. **In JavaScript/Node.js**
 
-In Node.js, since it’s single-threaded by default, you need to use libraries or
+In Node.js, since it's single-threaded by default, you need to use libraries or
 frameworks like `Express` or `Koa` that are built on top of underlying modules
 (e.g., `http`) to handle concurrency at a higher level.
 
@@ -107,7 +94,7 @@ For example:
 ### 2. **In Python**
 
 Python is also single-threaded by default, but you can use multithreading or
-multiprocessing to achieve concurrency. However, due to Python’s Global
+multiprocessing to achieve concurrency. However, due to Python's Global
 Interpreter Lock (GIL), some operations are not thread-safe unless properly
 managed.
 
@@ -122,7 +109,7 @@ For example:
 
 ### Web Servers
 
-Imagine you’re running a web server that handles multiple requests
+Imagine you're running a web server that handles multiple requests
 simultaneously. Without concurrency, each request would have to wait for the
 previous one to complete, leading to slow response times and high latency.
 
@@ -134,7 +121,7 @@ With concurrency:
 
 ### File Uploads
 
-If you’re uploading files to a server, each upload can be handled by a different
+If you're uploading files to a server, each upload can be handled by a different
 thread. This ensures that multiple uploads happen at the same time without
 waiting for one another.
 
@@ -149,7 +136,7 @@ training times significantly.
 1. **Deadlocks**: If multiple threads are trying to access the same resource at
    the same time, it can lead to deadlocks.
 2. **Infinite Loops**: Poorly designed concurrency logic can cause infinite
-   loops if there’s no way for threads to exit gracefully.
+   loops if there's no way for threads to exit gracefully.
 3. **Context Switching**: In multithreaded environments, switching between
    threads (context switching) can introduce overhead, especially in languages
    that are not thread-safe by design.
@@ -173,4 +160,4 @@ training times significantly.
    - [Asyncio](https://medium.com/@write2bishwarup/asyncio-the-underrated-weapon-for-ml-11a37f315355)
 3. **Concurrency and Multithreading**
    - [Concurrency and Async Await](https://fastapi.tiangolo.com/async/?h=conc#concurrency-and-async-await)
-   - [The Hitchhiker’s Guide to Python: Concurrency](https://docs.python-guide.org/scenarios/speed/)
+   - [The Hitchhiker's Guide to Python: Concurrency](https://docs.python-guide.org/scenarios/speed/)

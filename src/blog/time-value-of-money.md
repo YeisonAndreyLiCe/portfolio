@@ -5,7 +5,6 @@ description: "The time value of money is a fundamental concept in finance.
 It states that a dollar today is worth more than a dollar in the future."
 tags: ["finance"]
 isDraft: true
-layout: "../../layouts/Post.astro"
 snippet:
   language: "bash"
   code: "

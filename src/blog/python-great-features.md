@@ -1,11 +1,8 @@
 ---
 title: Python Great Features
-pubDate: 2024-10-27
-description: "Python have great features that make it easy to use different
-  programming paradigms.
-  Let's explore some of the best features of Python."
+pubDate: 2024-11-04
+description: "Python Great Features"
 tags: ["python"]
-layout: "../../layouts/Post.astro"
 snippet:
   language: "python"
   code: "def stateful_function():\n

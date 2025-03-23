@@ -8,7 +8,7 @@ describe("Web site", (): void => {
     cy.contains("Background");
     cy.contains("Education");
 
-    cy.contains("posts").click();
+    cy.contains("blog").click();
     cy.contains("Read Post");
     cy.get("#main-content").children().first().contains("Read Post").click();
     cy.contains("Table of contents");

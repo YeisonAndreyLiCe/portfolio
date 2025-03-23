@@ -1,6 +1,7 @@
 ---
 import { Code } from "astro:components";
 import type { BuiltinLanguage } from "shiki";
+
 const { BASE_URL } = import.meta.env;
 
 interface Props {
@@ -19,7 +20,7 @@ interface Props {
 const { title, pubDate, description, tags, readingTime, snippet } = Astro.props;
 
 const date = new Date(pubDate).toDateString();
-const postUrl = `${BASE_URL}posts/${title.toLowerCase().replace(/\s/g, "-")}/`;
+const postUrl = `${BASE_URL}blog/${title.toLowerCase().replace(/\s/g, "-")}/`;
 ---
 
 <div class="preview-container">

@@ -6,7 +6,6 @@ description:
   edges, and properties to common graph algorithms like breadth-first search
   (BFS) and depth-first search (DFS). Let's dive in!"
 tags: ["programming", "graphs"]
-layout: "../../layouts/Post.astro"
 isDraft: true
 snippet:
   language: "python"

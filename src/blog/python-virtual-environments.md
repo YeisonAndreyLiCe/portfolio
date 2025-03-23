@@ -3,7 +3,6 @@ title: Python Virtual Environments
 pubDate: 2024-11-04
 description: "Python Virtual Environments"
 tags: ["python"]
-layout: "../../layouts/Post.astro"
 snippet:
   language: "docker"
   code: "
@@ -80,7 +79,7 @@ such as ~/.virtualenvs.
 Not checked into source control systems such as Git.
 
 Considered as disposable – it should be simple to delete and recreate it from
-scratch. You don’t place any project code in the environment.
+scratch. You don't place any project code in the environment.
 
 Not considered as movable or copyable – you just recreate the same environment
 in the target location.
@@ -143,8 +142,8 @@ exit
 ### virtualenv (Lower level)
 
 > virtualenv can help you. It creates an environment that has its own
-> installation directories, that doesn’t share libraries with other virtualenv
-> environments (and optionally doesn’t access the globally installed libraries
+> installation directories, that doesn't share libraries with other virtualenv
+> environments (and optionally doesn't access the globally installed libraries
 > either). [virtualenv docs](https://virtualenv.pypa.io/en/latest/)
 
 ```bash

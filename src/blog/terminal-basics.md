@@ -1,20 +1,19 @@
 ---
 title: Terminal Basics
-pubDate: 2024-10-27
-description: "Terminal Basics for Linux and Mac OS"
+pubDate: 2024-11-04
+description: "Terminal Basics"
 tags: ["terminal"]
-layout: "../../layouts/Post.astro"
 snippet:
   language: "bash"
   code: "
-mkdir dir_name\n
-cd dir_name\n
-touch file_name\n
-echo 'foo' > file_name\n
-ls\n
-cat file_name\n
-rm file_name\n
-"
+    mkdir dir_name\n
+    cd dir_name\n
+    touch file_name\n
+    echo 'foo' > file_name\n
+    ls\n
+    cat file_name\n
+    rm file_name\n
+  "
 ---
 
 ## what is a command?
