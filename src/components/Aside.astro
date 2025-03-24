@@ -119,6 +119,7 @@ const { titles } = Astro.props;
     align-items: center;
     border-radius: 4px;
     padding: 8px;
+    color: var(--text-color);
   }
 
   .hidden-only-on-mobile {
@@ -126,13 +127,11 @@ const { titles } = Astro.props;
   }
 
   a.active {
-    background-color: var(--contrast);
-    color: var(--primary);
+    color: var(--contrast);
   }
 
   a:hover {
-    background-color: var(--contrast);
-    color: var(--primary);
+    color: var(--contrast);
     transition: background-color 0.3s;
   }
 
