@@ -9,12 +9,14 @@ import Aside from "components/Aside.astro";
 
 export interface Props {
   frontmatter: CollectionEntry<"blog">["data"];
+  allPosts: CollectionEntry<"blog">[];
   headings: { slug: string; text: string; depth: number }[];
 }
 
 const {
   frontmatter: { title, description, pubDate, readingTime },
   headings,
+  allPosts,
 } = Astro.props;
 ---
 
@@ -22,7 +24,7 @@ const {
 <html lang="en">
   <Head title={`${title} | post`} description={description} />
   <body>
-    <Aside titles={[]} />
+    <Aside posts={allPosts} />
     <div id="main-content">
       <Hero
         pubDate={pubDate}

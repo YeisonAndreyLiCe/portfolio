@@ -1,14 +1,15 @@
 ---
 import ThemeToggle from "components/ThemeToggle.astro";
 import Icon from "components/Icon.astro";
+import type { CollectionEntry } from "astro:content";
 
 const { BASE_URL } = import.meta.env;
 
 interface Props {
-  titles: string[];
+  posts?: CollectionEntry<"blog">[];
 }
 
-const { titles } = Astro.props;
+const { posts } = Astro.props;
 ---
 
 <div id="mobile-nav-dropdown">
@@ -31,18 +32,11 @@ const { titles } = Astro.props;
       <a href={`${BASE_URL}about/`}
         ><Icon icon="about" size="35px" color="currentcolor" />about</a
       >
-      <a href={`${BASE_URL}blog/`}
+      <a
+        href={posts === undefined ? `${BASE_URL}blog/` : undefined}
+        id="blog-link"
         ><Icon icon="article" size="35px" color="currentcolor" />blog</a
       >
-      {
-        titles.map((title) => (
-          <a
-            href={`${BASE_URL}${title.toLocaleLowerCase().replace(/\s/g, "-")}/`}
-          >
-            {title}
-          </a>
-        ))
-      }
       <a href="https://www.linkedin.com/in/yeison-andrey-lice/" target="_blank">
         <Icon icon="linkedin" size="35px" color="currentcolor" />linkedin
       </a>
@@ -55,8 +49,38 @@ const { titles } = Astro.props;
     </div>
   </div>
 </div>
+
+{
+  posts && (
+    <div id="posts-list" class="hidden">
+      <h2>Recent Posts</h2>
+      <ul>
+        {posts.map((post) => (
+          <li>
+            <a href={`${BASE_URL}blog/${post.id}/`}>{post.data.title}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
 <script>
+  const addInteractivity = (navbarElement: HTMLElement, isDesktop: boolean) => {
+    const links = navbarElement.querySelectorAll("a");
+    links.forEach((link) => {
+      if (link.href === window.location.href) {
+        link.classList.add("active");
+      }
+      if (!isDesktop && link.id === "blog-link") {
+        const baseUrl = window.location.origin;
+        link.setAttribute("href", `${baseUrl}/portfolio/blog/`);
+      }
+    });
+  };
+
   const wrapperFN1 = () => {
+    const isDesktop = window.innerWidth > 900;
     const navbarElement = document.getElementById("side-nav");
     if (navbarElement !== null) {
       const showMenu = document.getElementById("show-menu");
@@ -70,13 +94,9 @@ const { titles } = Astro.props;
           navbarElement.classList.add("menu-hidden");
           navbarElement.innerHTML = "";
         });
+        addInteractivity(navbarElement, isDesktop);
       });
-      const links = navbarElement.querySelectorAll("a");
-      links.forEach((link) => {
-        if (link.href === window.location.href) {
-          link.classList.add("active");
-        }
-      });
+      addInteractivity(navbarElement, isDesktop);
     }
 
     const showMenu = document.getElementById("show-menu");
@@ -98,6 +118,17 @@ const { titles } = Astro.props;
       sideNav?.classList.add("hidden-only-on-mobile");
       hideMenu?.classList.add("hidden-only-on-mobile");
     });
+
+    // Handle blog link click
+    const blogLink = document.getElementById("blog-link");
+    const postsList = document.getElementById("posts-list");
+
+    if (blogLink && postsList && isDesktop) {
+      blogLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        postsList.classList.toggle("hidden");
+      });
+    }
   };
 
   wrapperFN1();
@@ -123,6 +154,10 @@ const { titles } = Astro.props;
   }
 
   .hidden-only-on-mobile {
+    display: none;
+  }
+
+  .hidden {
     display: none;
   }
 
@@ -185,6 +220,48 @@ const { titles } = Astro.props;
     cursor: pointer;
   }
 
+  #posts-list {
+    position: fixed;
+    top: 0;
+    left: 100px;
+    height: 100%;
+    width: 300px;
+    background-color: var(--primary);
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+    opacity: 0.95;
+  }
+
+  #posts-list h2 {
+    color: var(--text-color);
+    margin-bottom: 20px;
+  }
+
+  #posts-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #posts-list li {
+    margin-bottom: 15px;
+  }
+
+  #posts-list a {
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    padding: 8px;
+    border-radius: 4px;
+  }
+
+  #posts-list a:hover {
+    background-color: var(--contrast);
+    color: var(--secondary);
+  }
+
   @media screen and (min-width: 900px) {
     .hidden-only-on-mobile {
       display: block;
@@ -230,6 +307,10 @@ const { titles } = Astro.props;
       position: absolute;
       bottom: 20px;
       left: unset;
+    }
+
+    #posts-list {
+      right: 100px;
     }
   }
 </style>
