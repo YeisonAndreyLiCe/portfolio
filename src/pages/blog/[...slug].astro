@@ -1,17 +1,50 @@
 ---
 import Post from "layouts/Post.astro";
 import { getCollection, render } from "astro:content";
+const { BASE_URL } = import.meta.env;
+
 export async function getStaticPaths() {
   const posts = await getCollection("blog", ({ data }) => !data.isDraft);
   return posts.map((post) => ({
     params: { slug: post.id },
-    props: { post },
+    props: { post, allPosts: posts },
   }));
 }
-const { post } = Astro.props;
+
+const { post, allPosts } = Astro.props;
 const { Content, headings } = await render(post);
+
+const currentIndex = allPosts.findIndex((p) => p.id === post.id);
+const nextPost = allPosts[(currentIndex + 1) % allPosts.length];
 ---
 
-<Post frontmatter={post.data} headings={headings}>
+<Post frontmatter={post.data} headings={headings} allPosts={allPosts}>
   <Content />
+  <div class="next-post">
+    <p>Next post:</p>
+    <a href={`${BASE_URL}blog/${nextPost.id}/`}>{nextPost.data.title}</a>
+  </div>
 </Post>
+
+<style>
+  .next-post {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--text-color);
+  }
+
+  .next-post p {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+  }
+
+  .next-post a {
+    color: var(--contrast);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .next-post a:hover {
+    text-decoration: underline;
+  }
+</style>
