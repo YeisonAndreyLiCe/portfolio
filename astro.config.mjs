@@ -5,7 +5,7 @@ import rehypeExternalLinks from "rehype-external-links";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://yeisonandreylice.github.io",
+  site: "https://yeison-liscano.github.io",
   base: "/portfolio/",
   trailingSlash: "always",
   markdown: {
